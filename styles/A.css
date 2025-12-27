@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');/* header */
+body {margin: 0; padding: 0;}
+body header {
+    background-color:#38517E;
+    position: -webkit-sticky; /* 사파리 호환 */
+    position: sticky;
+    top: 0;
+    z-index: 999; 
+    width: 100%;
+    animation: fade-in-blue linear forwards;
+    animation-timeline: scroll();
+    animation-range: 150px 500px;
+}
+@keyframes fade-in-blue {
+    from {
+        background-color: transparent;
+        box-shadow: none;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        background-color: rgba(40, 58, 94, 0.95); /* 약간의 투명도가 있는 진한 남색 */
+        box-shadow: 0 2px 15px rgba(0,0,0,0.3);    /* 그림자로 입체감 추가 */
+        
+    }
+}
+body header #toggle-bar:checked + .hide-bar {
+    display: none;
+}
+body header .hide-bar { 
+    background-color: #023b6d; width:100%; height: 30px;
+    display: flex; justify-content: space-between;
+}
+body header .hide-bar .left {height:100%;}
+body header .hide-bar .left img {height:75%; padding: 3px 0 5px 10px;}
+body header .hide-bar .left .preview-devices {}
+body header .hide-bar .current-template {}
+body header .hide-bar .navigate {
+    display: flex;
+}
+body header .hide-bar .navigate label {
+    filter: invert(100%);
+    margin: 5px 15px ;
+}
+
+body header .hide-bar .navigate .download {
+    background-color: #00a6eb; height: 100%; padding: 0px 15px;
+    transition: all 1s;
+}
+body header .hide-bar .navigate .download:hover {
+    background-color: #5bbae6;
+    border: 0 solid #5bbae6;
+}
+body header .hide-bar .navigate .download a {
+    height: 100%; text-decoration: none;
+    display: flex; justify-content: space-around;
+}
+body header .hide-bar .navigate .download a p {
+    margin-top: 5px; font-size: 13px;
+    font-weight: 700; color: #fff;
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+body header .hide-bar .navigate .download .download-icon {
+    filter: invert(100%);
+    height: 80%;
+    margin-top: 5px;
+}
+
+body header .top-header {
+    display: flex; justify-content: space-around;
+    align-items: center;
+    height: 50px; padding: 20px 0;
+}
+body header .top-header h1.site-name {
+    font-weight: 500; text-transform: uppercase;
+    color: #fff; font-family: 'Jost', sans-serif;
+    margin: 0; letter-spacing: 2px;
+    
+}
+body header .top-header .menus {
+     display: flex;
+}
+body header .top-header .menus ul {
+    display: flex; list-style: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+body header .top-header .menus ul li a {
+    padding: 0 12px; color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+body header .top-header .menus ul li a:hover {
+    color:#47b2e4;
+    transition: all 0.3s ease-in-out;
+}
+body header .top-header .menus ul li.dropdown { position: relative;}
+body header .top-header .menus ul li.dropdown ul.submenu {
+    display: block;
+    opacity: 0;             
+    visibility: hidden;
+    position: absolute;   
+    top: 100%;            /* 부모 바로 아래에 위치 */
+    left: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    width: 200px;     /* 박스 최소 너비 */
+    padding: 10px 0;      /* 안쪽 여백 */
+    border-radius: 5px;   /* 둥근 모서리 */
+    list-style: none;     /* 점 없애기 */
+    z-index: 10;
+}
+
+body header .top-header .menus ul li.dropdown ul.submenu li a {
+    display: block;       /* 한 줄 꽉 차게 */
+    padding: 10px 20px;
+    color: #333;          /* 글씨 검은색 */
+    text-decoration: none;
+}
+
+body header .top-header .menus ul li.dropdown ul.submenu li a:hover {
+    color:#47b2e4;
+}
+
+body header .top-header .menus ul li.dropdown:hover .submenu {
+    opacity: 1;             /* 불투명하게 */
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 1. 두 번째 서브메뉴의 부모 li */
+body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-dropdown-parent {
+    position: relative; /* 자식(deep-submenu)의 기준점이 됨 */
+    
+}
+
+/* 2. 두 번째 서브메뉴 스타일 (숨김 상태) */
+body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-dropdown-parent .deep-submenu {
+    width: 200px;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;        
+    right: 100%;    
+    left: auto;
+    transform: translateX(15px); 
+
+    transition: all 0.3s ease-in-out;
+    
+    background-color: white;
+    min-width: 150px;
+    padding: 10px 0;
+    border-radius: 5px;
+    list-style: none;
+    z-index: 20; /* 첫 번째 메뉴보다 더 위에 오도록 */
+}
+
+body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-dropdown-parent .deep-submenu li {
+    display: block;
+    width: 100%;
+}
+body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-dropdown-parent .deep-submenu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+}
+body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-dropdown-parent .deep-submenu li a:hover {
+    color:#47b2e4;
+}
+
+
+
+body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-dropdown-parent:hover .deep-submenu {
+    opacity: 1;            
+    visibility: visible;    
+    
+    /* 오른쪽에 있던 놈을 원래 자리(0)로 끌어옴 -> 오른쪽에서 스윽 나타남 */
+    transform: translateX(0); 
+}
+
+
+body header .top-header .menus a.btn-get-started {
+    border-radius: 50px;
+    background-color: #47b2e4;
+    border: 1px solid #47b2e4;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500; font-size: 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 8px 25px; margin: 11px 0 0 15px;
+    height: 60%;
+    text-decoration: none;
+    transition: all 1s;
+}
+body header .top-header .menus a.btn-get-started:hover {
+    background-color: #3a95be;
+    border: 1px solid #3a95be;
+}
+
+/* section - Home */
+section #Home { 
+    background-color:#38517E; padding: 0 100px 0 100px; 
+    display: flex; align-items: center; height: 550px;
+}
+section #Home .slogan {
+    margin: 0 30px 0 30px;
+    width: 60%;
+    animation: zoom-out 0.7s ease-in-out forwards;
+}
+section #Home .slogan h1 { 
+    width: 100%; margin: 0; font-family: 'Jost', sans-serif; 
+    color: #fff; font-size: 44px; line-height: 1.2;
+}
+section #Home .slogan p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; font-size: 20px;
+    margin: 0 0 30px; color: rgb(255 255 255 / 60%);
+}
+section #Home .slogan .two-buttons {
+    display: flex; align-items: center;
+}
+section #Home .slogan .two-buttons a.btn-get-started {
+    border: 1px solid #47b2e4; border-radius: 50px;
+    background-color: #47b2e4;
+    font-weight: 500; font-size: 15px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px 12px 28px;
+    color: #fff; font-weight: 500;
+    font-family: 'Jost', sans-serif;
+    text-decoration: none;
+    transition: all 1s;
+}
+section #Home .slogan .two-buttons a.btn-get-started:hover {
+    background-color: #3a95be;
+    border: 1px solid #3a95be;
+}
+section #Home .slogan .two-buttons a.btn-watch-video {
+    display: flex; align-items: center;
+    color:#fff; text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    transition: color 0.5s;
+}
+section #Home .slogan .two-buttons a.btn-watch-video:hover {
+    color:#47b2e4;
+}
+section #Home .slogan .two-buttons a.btn-watch-video img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(100%) contrast(100%);
+    width: 35px; padding: 0 8px 0 18px;
+    transition: filter 0.5s;
+}
+section #Home .slogan .two-buttons a.btn-watch-video:hover img {
+    filter: invert(73%) sepia(51%) saturate(2326%) hue-rotate(174deg) brightness(102%) contrast(89%);
+}
+section #Home .slogan .two-buttons a.btn-watch-video p {
+    margin: 0; color: inherit;
+}
+section #Home .floating-Image {
+    display: flex; justify-content: center;
+    animation: zoom-out 0.7s ease-in-out forwards;
+}
+
+section #Home .floating-Image img {
+    width: 85%;
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes zoom-out {
+    0% { transform: scale(1.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+section #About {
+    height: 1500px;
+    background-color: #333;
+}
