@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/A.css">
     <link rel="stylesheet" href="./styles/B.css">
     <link rel="stylesheet" href="./styles/C.css">
@@ -15,7 +15,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <!-- A part (header + Home) 시작-->
     <header>
         <input type="checkbox" id="toggle-bar" style="display: none;">
@@ -24,14 +23,14 @@
             <div class="left">
                 <a href="#"><img src="https://bootstrapmade.com/assets/img/logo.png" alt="logo"></a>
                 <div class="preview-devices">
-                    <a href="#"><img src="/images/images_A/computer.png" alt=""></a>
-                    <a href="#"><img src="/images/images_A/tablet.png" alt=""></a>
-                    <a href="#"><img src="/images/images_A/mobile.png" alt=""></a>
+                    <a href="#"><img src="/images/images_A/computer.png" alt="computer-mode"></a>
+                    <a href="#"><img src="/images/images_A/tablet.png" alt="tablet-mode"></a>
+                    <a href="#"><img src="/images/images_A/mobile.png" alt="mobile-mode"></a>
                 </div>
             </div>
             <div class="current-template">
                 <a href="#"><img src="/images/images_A/left.png" alt="왼쪽"></a>
-                <a href="#"><h3>Arsha</h3></a>
+                <a href="https://bootstrapmade.com/demo/Arsha/"><h3>Arsha</h3></a>
                 <a href="#"><img src="/images/images_A/right.png" alt="오른쪽"></a>
             </div>
             <div class="navigate">
@@ -61,7 +60,7 @@
                         <ul class="submenu">
                             <li><a href="#">Dropdown 1</a></li>
                             <li class="deep-dropdown-parent">
-                                <a href="#">Deep Dropdown &nbsp;&nbsp;&nbsp;&nbsp; ⌵</a>
+                                <a href="#">Deep Dropdown &nbsp;&nbsp; ⌵</a>
                                 <ul class="deep-submenu">
                                     <li><a href="#">Deep Dropdown 1</a></li>
                                     <li><a href="#">Deep Dropdown 2</a></li>
@@ -96,9 +95,6 @@
             </div>
             <div class="floating-Image"><img src="https://bootstrapmade.com/content/demo/Arsha/assets/img/hero-img.png" alt="floating-Image"></div>
         </div>
-        <a href="#" class="back-to-top">
-            <img src="images/images_A/up.png" alt="Top">
-        </a>
         <div id="About"></div>
         <div id="Service"></div>
         <div id="Portfolio"></div>
@@ -115,8 +111,74 @@
         <div id="Subscribe">
 
         </div>
+        <!-- 새로고침 시 애니메이션 효과 넣어야 함-->
         <div id="Recent">
-
+            <div class="Recent-title">
+                <h2 class="title">RECENT BLOG POSTS</h2>
+                <!-- h2:after로 구분선 넣어야 함-->
+                <p class="description">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div>
+            <div id="Recent-Info">
+                <!-- card id 따로 줘야할 지 고민해야 됨 없어도 될듯-->
+                <a href="#" class="card">
+                    <div id="card-1">
+                        <div class="card-Image"></div>
+                        <!-- 위 그림우측하단에 겹치게 있는 날짜 포함해야 함-->
+                        <div class="card-Info">
+                            <h3>Eum ad dolor et. Autem aut fugiat debitis</h3>
+                            <div class="card-Category">
+                                <img src="" alt="프로필 이미지" class="profile">
+                                <p>Julia Parker &nbsp;&nbsp; / &nbsp;&nbsp; </p>
+                                <img src="" alt="폴더 이미지" class="folder">
+                                <h3>Politics</h3>
+                            </div>
+                            <br>
+                            <div class="line"></div>
+                            <br>
+                            <h3 class="Read-More">Read More</h3><img src="" alt="right-arrow"> <!-- .Read-More:after 로 구현해보기 -->
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div id="card-2">
+                        <div class="card-Image"></div>
+                        <!-- 위 그림우측하단에 겹치게 있는 날짜 포함해야 함-->
+                        <div class="card-Info">
+                            <h3>Eum ad dolor et. Autem aut fugiat debitis</h3>
+                            <div class="card-Category">
+                                <img src="" alt="프로필 이미지" class="profile">
+                                <p>Julia Parker &nbsp;&nbsp; / &nbsp;&nbsp; </p>
+                                <img src="" alt="폴더 이미지" class="folder">
+                                <h3>Politics</h3>
+                            </div>
+                            <br>
+                            <div class="line"></div>
+                            <br>
+                            <h3 class="Read-More">Read More</h3><img src="" alt="right-arrow"> <!-- .Read-More:after 로 구현해보기 -->
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div id="card-3">
+                        <div class="card-Image"></div>
+                        <!-- 위 그림우측하단에 겹치게 있는 날짜 포함해야 함-->
+                        <div class="card-Info">
+                            <h3>Eum ad dolor et. Autem aut fugiat debitis</h3>
+                            <div class="card-Category">
+                                <img src="" alt="프로필 이미지" class="profile">
+                                <p>Julia Parker &nbsp;&nbsp; / &nbsp;&nbsp; </p>
+                                <img src="" alt="폴더 이미지" class="folder">
+                                <h3>Politics</h3>
+                            </div>
+                            <br>
+                            <div class="line"></div>
+                            <br>
+                            <h3 class="Read-More">Read More</h3><img src="" alt="right-arrow"> <!-- .Read-More:after 로 구현해보기 -->
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
         </div>
         <div id="Contact"></div>
     </main>

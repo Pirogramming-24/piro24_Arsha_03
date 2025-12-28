@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');/* header */
-body {margin: 0; padding: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* header */
 body header {
     background-color:#38517E;
     position: -webkit-sticky; 
@@ -33,7 +34,7 @@ body header .hide-bar {
     display: flex; justify-content: space-between;
 }
 body header .hide-bar .left {height:100%; display: flex;}
-body header .hide-bar .left img {height:75%; padding: 3px 0 5px 10px;}
+body header .hide-bar .left img {height:100%; padding: 3px 0 5px 10px;}
 body header .hide-bar .left .preview-devices {
     margin-left: 15px;
 }
@@ -48,7 +49,7 @@ body header .hide-bar .left .preview-devices a img:hover {
 }
 body header .hide-bar .current-template {
     display: flex; justify-content: center; align-items: center;
-    height: 100%; margin-left: 17%;
+    height: 100%; margin-left: 0;
 }
 body header .hide-bar .current-template a  {
     margin: 0 6px; color: #fff; text-decoration: none;
@@ -76,8 +77,8 @@ body header .hide-bar .navigate label {
 }
 body header .hide-bar .navigate label img {
     filter: invert(100%);
-    margin: 5px 15px ;
-    height: 70%;
+    margin: 2px 15px ;
+    height: 80%;
     opacity: 0.6; 
     transition: opacity 0.3s;
 }
@@ -97,24 +98,23 @@ body header .hide-bar .navigate .download:hover {
 }
 body header .hide-bar .navigate .download a {
     height: 70%; text-decoration: none;
-    display: flex; justify-content: space-around;
+    display: flex; justify-content: space-around; align-items: center;
 }
 body header .hide-bar .navigate .download a p {
-    margin-top: 5px; font-size: 13px;
+    font-size: 13px;
     font-weight: 700; color: #fff;
     text-transform: uppercase;
     padding-left: 5px;
 }
 body header .hide-bar .navigate .download .download-icon {
     filter: invert(100%);
-    height: 80%;
-    margin-top: 5px;
+    height: 70%;
 }
 
 body header .top-header {
     display: flex; justify-content: space-around;
     align-items: center;
-    height: 50px; padding: 20px 0;
+    height: 90px; padding: 20px 0;
 }
 body header .top-header h1.site-name {
     font-weight: 500; text-transform: uppercase;
@@ -210,13 +210,12 @@ body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-drop
     right: 100%;    
     left: auto;
     transform: translateX(15px); 
-
+    box-shadow: 3px 1px 5px 2px #c0bebe;
     transition: all 0.3s ease-in-out;
-    
     background-color: white;
     min-width: 150px;
     padding: 10px 0;
-    border-radius: 5px;
+    border-radius: 4px;
     list-style: none;
     z-index: 20; /* 첫 번째 메뉴보다 더 위에 오도록 */
 }
@@ -245,6 +244,7 @@ body header .top-header .menus ul.menus-list li.dropdown ul.submenu li.deep-drop
 
 /* top-header 우측 Get Started 버튼 */
 body header .top-header .menus a.btn-get-started {
+    display: block;
     border-radius: 50px;
     background-color: #47b2e4;
     border: 1px solid #47b2e4;
@@ -272,33 +272,33 @@ body header .top-header .menus label.burger-icon {
     display: inline-flex; align-items: center; justify-content: center;
 }
 
-/* section 시작 */
-/* section - Home */
-section #Home { 
+/* main 시작 */
+/* main - Home */
+main #Home { 
     background-color:#38517E; 
     min-height: 80vh; height: auto;
     display: flex; align-items: center;
     padding: 120px 6% 60px 6%;
 }
-/* section 좌측부 */
-section #Home .slogan {
+/* main 좌측부 */
+main #Home .slogan {
     margin: 0 30px 0 30px;
     width: 60%;
     animation: zoom-out 0.7s ease-in-out forwards;
 }
-section #Home .slogan h1 { 
+main #Home .slogan h1 { 
     width: 100%; margin: 0; font-family: 'Jost', sans-serif; 
     color: #fff; font-size: 44px; line-height: 1.2;
 }
-section #Home .slogan p {
+main #Home .slogan p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600; font-size: 20px;
     margin: 0 0 30px; color: rgb(255 255 255 / 60%);
 }
-section #Home .slogan .two-buttons {
+main #Home .slogan .two-buttons {
     display: flex; align-items: center;
 }
-section #Home .slogan .two-buttons a.btn-get-started {
+main #Home .slogan .two-buttons a.btn-get-started {
     border: 1px solid #47b2e4; border-radius: 50px;
     background-color: #47b2e4;
     font-weight: 500; font-size: 15px;
@@ -310,39 +310,39 @@ section #Home .slogan .two-buttons a.btn-get-started {
     text-decoration: none;
     transition: all 1s;
 }
-section #Home .slogan .two-buttons a.btn-get-started:hover {
+main #Home .slogan .two-buttons a.btn-get-started:hover {
     background-color: #3a95be;
     border: 1px solid #3a95be;
 }
-section #Home .slogan .two-buttons a.btn-watch-video {
+main #Home .slogan .two-buttons a.btn-watch-video {
     display: flex; align-items: center;
     color:#fff; text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     transition: color 0.5s;
 }
-section #Home .slogan .two-buttons a.btn-watch-video:hover {
+main #Home .slogan .two-buttons a.btn-watch-video:hover {
     color:#47b2e4;
 }
-section #Home .slogan .two-buttons a.btn-watch-video img {
+main #Home .slogan .two-buttons a.btn-watch-video img {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(174deg) brightness(100%) contrast(100%);
-    width: 35px; padding: 0 8px 0 18px;
+    width: 70px; padding: 0 8px 0 18px;
     transition: filter 0.5s;
 }
-section #Home .slogan .two-buttons a.btn-watch-video:hover img {
+main #Home .slogan .two-buttons a.btn-watch-video:hover img {
     filter: invert(73%) sepia(51%) saturate(2326%) hue-rotate(174deg) brightness(102%) contrast(89%);
 }
-section #Home .slogan .two-buttons a.btn-watch-video p {
+main #Home .slogan .two-buttons a.btn-watch-video p {
     margin: 0; color: inherit;
 }
 
-/* section 우측부 */
-section #Home .floating-Image {
+/* main 우측부 떠다니는 이미지 */
+main #Home .floating-Image {
     display: flex; justify-content: center;
     animation: zoom-out 0.7s ease-in-out forwards;
 }
 
-section #Home .floating-Image img {
+main #Home .floating-Image img {
     width: 85%;
     animation: floating 3s ease-in-out infinite;
 }
@@ -358,40 +358,6 @@ section #Home .floating-Image img {
     100% { transform: translateY(0); }
 }
 
-.back-to-top {
-    position: fixed;
-    visibility: hidden; /* 평소엔 안 보임 */
-    opacity: 0;         /* 투명함 */
-    bottom: 15px;
-    z-index: 996;       
-    background: #47b2e4;
-    width: 40px;
-    height: 40px;
-    border-radius: 50px; 
-    transition: all 1s;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-
-    animation: fade-up-appear linear forwards;
-    animation-timeline: scroll();
-    animation-range: 150px 250px; 
-}
-
-
-.back-to-top img {
-    width: 20px; 
-    height: auto;
-    filter: invert(100%); 
-}
-
-.back-to-top:hover {
-    background: #209dd8; 
-}
-
-
 @keyframes fade-up-appear {
     0% {
         visibility: hidden;
@@ -405,13 +371,14 @@ section #Home .floating-Image img {
     }
 }
 
-/* scroll시 효과 보기 위한 임시 section-About us부분 
+/* scroll시 효과 보기 위한 임시 main-About us부분 
     추후 삭제
 */
-section #About {
+main #About {
     height: 1500px;
     background-color: #333;
 }
+
 
 /* 반응형 CSS */
 
@@ -441,7 +408,6 @@ body header .top-header .menus label.burger-icon {
     
     body header .top-header .menus ul.menus-list {
         display: none; 
-        
         position: absolute;
         top: 60px; 
         left: 20px; 
@@ -475,7 +441,7 @@ body header .top-header .menus label.burger-icon {
     
 }
 
-/* 2. [1024px ~ 992px] preview-device icons 숨김 */
+/* preview-device icons 숨김 */
 @media screen and (max-width: 1024px) {
     body header .hide-bar .left .preview-devices {
         display: none;
@@ -483,9 +449,9 @@ body header .top-header .menus label.burger-icon {
 }
 
 
-/* 3. [991px ~ 769px] Home 세로 정렬 + 이미지가 위로 */
+/* Home 세로 정렬 + 이미지가 위로 */
 @media screen and (max-width: 991px) {
-    section #Home {
+    main #Home {
         flex-direction: column-reverse;  /* 열 기준 뒤집기 */
         justify-content: center;
         text-align: center; 
@@ -493,24 +459,24 @@ body header .top-header .menus label.burger-icon {
         height: auto; 
     }
 
-    section #Home .slogan {
+    main #Home .slogan {
         width: 100%;
         margin: 30px 0 0 0;
     }
 
     /* 버튼들 가운데 정렬 */
-    section #Home .slogan .two-buttons {
+    main #Home .slogan .two-buttons {
         justify-content: center;
     }
 
-    section #Home .floating-Image {
+    main #Home .floating-Image {
         width: 70%; /* 이미지 크기 적당히 조절 */
         margin-bottom: 20px;
     }
 }
 
 
-/* 4. [768px 이하] 로고 이미지 숨김 */
+/* 로고 이미지 숨김 */
 @media screen and (max-width: 768px) {
     body header .hide-bar .left > a img { 
         /* .left 바로 아래 있는 로고 이미지 숨김 */
@@ -519,7 +485,7 @@ body header .top-header .menus label.burger-icon {
 }
 
 
-/* 5. [767px 이하] Current Template 좌측 이동 */
+/* Current Template 좌측 이동 */
 @media screen and (max-width: 767px) {
     
     body header .hide-bar .current-template {
