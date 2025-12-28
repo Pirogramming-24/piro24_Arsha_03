@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+:root{
+    --header_bg : #013b6e;
+    --home_bg : #38517E;
+    --main_color : #37527e;
+    --sub_color : #48B2E4;
+    --font_color : #444444;
+    --bg_color : #F5F6F8;
+}
 
 /* header */
 body header {
@@ -19,7 +27,7 @@ body header {
         backdrop-filter: blur(0px);
     }
     to {
-        background-color: rgba(40, 58, 94, 0.95); 
+        background-color: rgba(42, 61, 97, 0.95); 
         box-shadow: 0 2px 15px rgba(0,0,0,0.3);   
         
     }
@@ -114,7 +122,7 @@ body header .hide-bar .navigate .download .download-icon {
 body header .top-header {
     display: flex; justify-content: space-around;
     align-items: center;
-    height: 90px; padding: 20px 0;
+    height: 90px; padding: 20px 200px;
 }
 body header .top-header h1.site-name {
     font-weight: 500; text-transform: uppercase;
@@ -499,20 +507,158 @@ body header .top-header .menus label.burger-icon {
 
 
 /* Recent Blog Posts 부분 */
-body main #Recent {}
-body main #Recent .Recent-title {}
-body main #Recent .Recent-title .title {}
-body main #Recent .Recent-title .title:after {}
-body main #Recent .Recent-title .description {}
-body main #Recent .Recent-Info {}
-body main #Recent .Recent-Info .card {}
-body main #Recent .Recent-Info .card .card-box .card-Image {}
-body main #Recent .Recent-Info .card .card-box .card-Info {}
-body main #Recent .Recent-Info .card .card-box .card-Info h3 {}
-body main #Recent .Recent-Info .card .card-box .card-Info .card-Category {}
-body main #Recent .Recent-Info .card .card-box .card-Info .card-Category .profile {}
-body main #Recent .Recent-Info .card .card-box .card-Info .card-Category p {}
-body main #Recent .Recent-Info .card .card-box .card-Info .card-Category .folder {}
-body main #Recent .Recent-Info .card .card-box .card-Info .card-Category h3 {}
-body main #Recent .Recent-Info .card .card-box .card-Info .line {}
-body main #Recent .Recent-Info .card .card-box .card-Info .Read-More {}
+body main #Recent {
+    min-height: 80vh; height: auto;
+    padding: 60px 0px;
+    display: flex; flex-direction: column;
+}
+body main #Recent .Recent-title {
+    height: 30%;
+    display: flex; flex-direction: column;
+    align-items: center;
+}
+body main #Recent .Recent-title .title {
+    color: #37517e;
+    font-family: 'Jost', sans-serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+body main #Recent .Recent-title .underline {
+    width: 60px; height: 3px;
+    background-color: #47b2e4;
+    position: relative; margin-bottom: 20px;
+}
+body main #Recent .Recent-title .underline:before,
+body main #Recent .Recent-title .underline:after {
+    content: "";
+    width: 60px; height: 1px;
+    background-color: #555;
+    position: absolute;
+    top: 30%;
+}
+body main #Recent .Recent-title .underline:before {
+    right: 100%; /* right :100% 하면 왼쪽에 붙음 */
+}
+body main #Recent .Recent-title .underline:after {
+    left: 100%;
+}
+body main #Recent .Recent-title .description {
+    color: #444444;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 40px;
+}
+body main #Recent .Recent-Info {
+    width: 100%; min-height: 400px;
+    display: flex; 
+    justify-content: center; gap: 30px;
+    
+}
+body main #Recent .Recent-Info .card {
+    width: 400px;
+    text-decoration: none;
+}
+
+
+body main #Recent .Recent-Info .card .card-box {
+    width: 100%; height: 450px;
+    display: flex; flex-direction: column;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2); /* 미세한 그림자 */
+    background-color: #fff; 
+    border-radius: 5px;
+}
+body main #Recent .Recent-Info .card .card-box img {
+    width: 100%; height:100%;
+    
+}
+
+body main #Recent .Recent-Info .card .card-box img:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+body main #Recent .Recent-Info .card .card-box .card-Image {
+    width: 100%; height: 55%;
+    overflow: hidden; /* scale커져서 넘친 부분 안보이게 */
+    position: relative; /* 밑으로 깔릴 부모 */
+}
+body main #Recent .Recent-Info .card .card-box .card-Image .date {
+    position: absolute; /* 위에 겹쳐올릴 자식 */
+    width: 100px; height: 30px;
+    background-color: #47b2e4;
+    color: #fff; display: flex; justify-content: center; align-items: center;
+    font-size: 12px; padding: 5px;
+    z-index: 20; font-family: 'Open Sans',sans-serif; font-weight: 500;
+    bottom:0px; right: 0px;
+}
+body main #Recent .Recent-Info .card .card-box .card-Image #date2 {
+    width: 70px; height: 30px;
+}
+body main #Recent .Recent-Info .card .card-box .card-Image #date3 {
+    width: 105px; height: 30px;
+}
+
+
+body main #Recent .Recent-Info .card .card-box .card-Info {
+    width: 100%; flex: 1; /* card-Image가 쓰고 남은 공간 다 쓰기 */
+    padding: 30px; 
+}
+body main #Recent .Recent-Info .card .card-box .card-Info h3 {
+    color: #37517e; font-size: 20px;
+    font-family: 'Jost', sans-serif;
+}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category {
+    display: flex;  align-items: center; margin-top: 6px;
+}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category .profile,
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category .folder {
+    width: 16px; margin-right: 6px;
+}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category p.information {
+    color: #acaaaa; font-size: 16px; 
+}
+
+body main #Recent .Recent-Info .card .card-box .card-Info .line {
+    width: 100%; height: 1px;
+    background-color: #f3f0f0;
+    margin: 12px 0 12px 0;
+}
+body main #Recent .Recent-Info .card .card-box .card-Info .Read-More {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #a19f9f; font-weight: 500; font-size: 18px;
+    display: flex; align-items: center;
+    margin-bottom: 0;
+}
+body main #Recent .Recent-Info .card .card-box .card-Info .Read-More:after {
+    content: "";
+    display: block;
+
+    width: 24px; height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/images/A/right-arrow.png');
+    mask-image: url('/images/A/right-arrow.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    background-color: #a19f9f; /* 평소 색상 (회색) */
+    margin-left: 8px;
+}
+
+
+body main #Recent .Recent-Info .card .card-box .card-Info h3,
+body main #Recent .Recent-Info .card .card-box .card-Info h4,
+body main #Recent .Recent-Info .card .card-box .card-Info .Read-More:after {
+    transition: all 0.5s ease;
+}
+body main #Recent .Recent-Info .card:hover .card-box .card-Info h3,
+body main #Recent .Recent-Info .card:hover .card-box .card-Info h4 {
+    color: #47b2e4;
+}
+body main #Recent .Recent-Info .card:hover .card-box .card-Info .Read-More:after {
+    background-color: #47b2e4;
+}
