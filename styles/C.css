@@ -1,3 +1,123 @@
-h1{
-    background-color: aqua;
+*{
+    box-sizing: border-box;
 }
+
+/* ------------------------ Team section ------------------------ */
+
+#Portfolio{
+    padding:60px 0;
+    width:100%;
+}
+#Portfolio #title_C{
+    width: 100%;
+    padding:0 76px 60px;
+}
+#Portfolio #title_C #main_title_C::before{
+    content: ''; display: block;
+    width:60px; height:5px;
+    margin:0 auto;
+    background-color: red;
+    position:absolute;
+    bottom:0px; left:0; right:0;
+    z-index: 1;
+}
+#Portfolio #title_C #main_title_C{
+    font-size: 32px; font-weight: 700;
+    text-align: center;
+    width:100%;
+    padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
+    position:relative;
+}
+#Portfolio #title_C #main_title_C::after{
+    content: ''; display: block;
+    width:160px; height:1px;
+    margin:0 auto;
+    background-color: aqua;
+    position:absolute;
+    bottom:2px; left:0; right:0;
+}
+#Portfolio #title_C #sub_title_C{
+    text-align: center;
+    margin:0;
+}
+#Portfolio #menu_C{
+    width: 100%;
+    padding-bottom: 20px;
+}
+#Portfolio #menu_C ul{
+    list-style: none;
+    display: flex; justify-content: center; align-items: center;
+    gap:4px;
+}
+#Portfolio #menu_C ul li{
+    padding: 8px 20px 10px; margin-bottom: 5px;
+}
+#Portfolio #menu_C ul li:hover{
+    border-radius: 20px;
+    background-color: #47b2e4;
+    color:#ffffff;
+    cursor:pointer;
+}
+#Portfolio #content_C{}
+
+/* ------------------------ Team section ------------------------ */
+
+#Team #team_title_C{
+    width: 100%;
+    padding:0 76px 60px;
+}
+#Team #team_title_C #team_main_title_C::before{
+    content: ''; display: block;
+    width:60px; height:5px;
+    margin:0 auto;
+    background-color: red;
+    position:absolute;
+    bottom:0px; left:0; right:0;
+    z-index: 1;
+}
+#Team #team_title_C #team_main_title_C{
+    font-size: 32px; font-weight: 700;
+    text-align: center;
+    width:100%;
+    padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
+    position:relative;
+}
+#Team #team_title_C #team_main_title_C::after{
+    content: ''; display: block;
+    width:160px; height:1px;
+    margin:0 auto;
+    background-color: aqua;
+    position:absolute;
+    bottom:2px; left:0; right:0;
+}
+#Team #team_title_C #team_sub_title_C{
+    text-align: center;
+    margin:0;
+}
+#Team #team_cards_C{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap : 24px;
+    max-width:960px;
+    margin:0 auto;
+}
+#Team #team_cards_C .card{
+    height:221.5px; width:100%;
+    padding: 30px;
+    background-color: aqua;
+    display:flex; align-items: center;
+    box-shadow: 0px 0px 15px gray;
+}
+#Team #team_cards_C .card img{
+    height:150px; width:150px;
+}
+#Team #team_cards_C .card .right{}
+#Team #team_cards_C .card .right .acrd_name_C{}
+#Team #team_cards_C .card .right .role_C{}
+#Team #team_cards_C .card .right hr{}
+#Team #team_cards_C .card .right .description_person_C{}
+#Team #team_cards_C .card .right ul.app_logos_C{
+    display: flex; align-items: center; justify-content: center;
+}
+#Team #team_cards_C .card .right li{}
