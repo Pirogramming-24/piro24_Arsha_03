@@ -6,6 +6,9 @@
   --card:    #ffffff;      /* 카드 배경 */
   --shadow:  0 10px 30px rgba(0,0,0,.08);
   --font_color : #444444;
+  --image_width_three_state: 296px;
+  --image_height_a: 197.43px;
+  --image_height_b: 394.57px;
 }
 
 
@@ -69,7 +72,39 @@
     color:#ffffff;
     cursor:pointer;
 }
-#Portfolio #content_C{}
+#Portfolio #content_C{
+    width:960px;
+    margin:0 auto;
+    display: flex;
+}
+#Portfolio #content_C .content_val_C{
+    width:calc(100%/3);
+}
+#Portfolio #content_C .content_val_C .image_wrap{
+    width:100%;
+    padding:0 12px; margin-top: 24px;
+    position:relative;
+    overflow: hidden;
+}
+#Portfolio #content_C .content_val_C .a{
+    height: var(--image_height_a);
+}
+#Portfolio #content_C .content_val_C .b{
+    height: var(--image_height_b);
+}
+#Portfolio #content_C .content_val_C img{
+    width:var(--image_width_three_state);
+}
+#Portfolio #content_C .content_val_C .explain{
+    position:absolute;
+    height:90px; width:var(--image_width_three_state);
+    background-color: var(--card); opacity:0.9;
+    transition: transform 0.3s ease-out;
+    pointer-events: none;
+}
+#Portfolio #content_C .content_val_C img:hover+.explain{
+    transform: translateY(-100%);
+}
 
 /* ------------------------ Team section ------------------------ */
 
