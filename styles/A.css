@@ -496,3 +496,23 @@ body header .top-header .menus label.burger-icon {
         display: none;
     }    
 }
+
+
+/* Recent Blog Posts 부분 */
+body main #Recent {}
+body main #Recent .Recent-title {}
+body main #Recent .Recent-title .title {}
+body main #Recent .Recent-title .title:after {}
+body main #Recent .Recent-title .description {}
+body main #Recent .Recent-Info {}
+body main #Recent .Recent-Info .card {}
+body main #Recent .Recent-Info .card .card-box .card-Image {}
+body main #Recent .Recent-Info .card .card-box .card-Info {}
+body main #Recent .Recent-Info .card .card-box .card-Info h3 {}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category {}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category .profile {}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category p {}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category .folder {}
+body main #Recent .Recent-Info .card .card-box .card-Info .card-Category h3 {}
+body main #Recent .Recent-Info .card .card-box .card-Info .line {}
+body main #Recent .Recent-Info .card .card-box .card-Info .Read-More {}
