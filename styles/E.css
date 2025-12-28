@@ -984,3 +984,71 @@ footer .e_footer2 .e_last a {
 		margin: 0 auto;
 	}
 }
+
+.back-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 999;
+    background: #48b2e4;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    animation: showButton linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 300px;
+}
+
+.back-to-top:hover {
+    opacity: 0.8 !important; 
+    cursor: pointer; 
+}
+
+.back-to-top img {
+	width: 15px;
+	height: 15px;
+}
+
+@keyframes showButton {
+    from { opacity: 0; visibility: hidden; }
+    to { opacity: 1; visibility: visible; }
+}
+
+@keyframes slide-up-permanent {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.e_info_title, .e_content1, .google-map, .e_content2, 
+.e_adinfo, .e_cinfo, .e_minfo {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: slide-up-permanent ease-out forwards;
+    animation-timeline: scroll();
+}
+
+.e_info_title {
+    animation-range: 0% 5%; 
+}
+
+.e_content1, .google-map {
+    animation-range: 5% 15%;
+}
+
+.e_content2 {
+    animation-range: 15% 20%;
+}
+
+.e_adinfo { animation-range: 20% 30%; }
+.e_cinfo  { animation-range: 30% 40%; }
+.e_minfo  { animation-range: 40% 50%; }
