@@ -1,11 +1,13 @@
 :root{
-    --header_bg : #013b6e;
-    --home_bg : #38517E;
-    --main_color : #37527e;
-    --sub_color : #48B2E4;
-    --font_color : #444444;
-    --bg_color : #F5F6F8;
+  --primary: #37517e;      /* 제목 네이비 */
+  --accent:  #47b2e4;      /* 포인트 블루 */
+  --muted:   #6c757d;      /* 회색 텍스트 */
+  --bg:      #f5f6f8;      /* 섹션 배경 */
+  --card:    #ffffff;      /* 카드 배경 */
+  --shadow:  0 10px 30px rgba(0,0,0,.08);
+  --font_color : #444444;
 }
+
 
 /* ------------------------ Root ------------------------ */
 
@@ -22,11 +24,11 @@
 }
 #Portfolio #title_C #main_title_C::before{
     content: ''; display: block;
-    width:60px; height:5px;
+    width:60px; height:3px;
     margin:0 auto;
-    background-color: red;
+    background-color: var(--accent);
     position:absolute;
-    bottom:0px; left:0; right:0;
+    bottom:1px; left:0; right:0;
     z-index: 1;
 }
 #Portfolio #title_C #main_title_C{
@@ -40,7 +42,8 @@
     content: ''; display: block;
     width:160px; height:1px;
     margin:0 auto;
-    background-color: aqua;
+    background-color: var(--font_color);
+    opacity: 0.25;
     position:absolute;
     bottom:2px; left:0; right:0;
 }
@@ -76,11 +79,11 @@
 }
 #Team #team_title_C #team_main_title_C::before{
     content: ''; display: block;
-    width:60px; height:5px;
+    width:60px; height:3px;
     margin:0 auto;
-    background-color: red;
+    background-color: var(--accent);
     position:absolute;
-    bottom:0px; left:0; right:0;
+    bottom:1px; left:0; right:0;
     z-index: 1;
 }
 #Team #team_title_C #team_main_title_C{
@@ -94,7 +97,8 @@
     content: ''; display: block;
     width:160px; height:1px;
     margin:0 auto;
-    background-color: aqua;
+    background-color: var(--font_color);
+    opacity: 0.25;
     position:absolute;
     bottom:2px; left:0; right:0;
 }
@@ -102,6 +106,9 @@
     text-align: center;
     margin:0;
 }
+
+/* 카드 */
+
 #Team #team_cards_C{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -113,22 +120,23 @@
 #Team #team_cards_C .card{
     height:221.5px; width:100%;
     padding: 30px;
-    background-color: aqua;
     display:flex; align-items: center;
-    box-shadow: 0px 0px 15px gray;
+    box-shadow: var(--shadow);
     transition:transform 0.4s ease-out;
+    border-radius: 5px;
 }
 #Team #team_cards_C .card:hover{
     transform: translateY(-10px);
 }
-#Team #team_cards_C .card img{
+#Team #team_cards_C .card>img{
     height:150px; width:150px;
     border-radius:50%;
-    background-color: red;
 }
-#Team #team_cards_C .card .right{}
+#Team #team_cards_C .card .right{
+    padding-left: 30px;
+}
 #Team #team_cards_C .card .right .card_name_C{
-    color : var(--main_color);
+    color : var(--primary);
     font-size: 20px; font-weight: 700;
     margin-bottom:5px;
 }
@@ -144,6 +152,9 @@
 }
 #Team #team_cards_C .card .right .description_person_C{
     margin-top:10px;
+    font-weight: 400;
+    font-size: 14px;
+    opacity:0.6;
 }
 #Team #team_cards_C .card .right ul.app_logos_C{
     display: flex; align-items: center; justify-content: left;
@@ -158,41 +169,122 @@
 #Team #team_cards_C .card .right li a{
     display:flex; align-items: center; justify-content: center;
     text-decoration: none; color:#ffffff;
-    width:36px; height:36px; margin-left: 8px; padding-left:0;
-    border-radius: 50%; background-color: antiquewhite;
+    width:36px; height:36px; margin-right: 8px; padding-left:0;
+    border-radius: 50%; background-color: #F4F4F4;
+}
+#Team #team_cards_C .card .right li a img{
+    color:black; width:16px; height:16px;
 }
 
 /* ------------------------ Pricing section ------------------------ */
 
-#Portfolio{
+#Pricing{
     padding:60px 0;
     width:100%;
 }
-#Portfolio #title_C{
+#Pricing #price_title_C{
     width: 100%;
     padding:0 76px 60px;
 }
-#Portfolio #title_C #main_title_C::before{
+#Pricing #price_title_C #price_main_title_C::before{
     content: ''; display: block;
-    width:60px; height:5px;
+    width:60px; height:3px;
     margin:0 auto;
-    background-color: red;
+    background-color: var(--accent);
     position:absolute;
-    bottom:0px; left:0; right:0;
+    bottom:1px; left:0; right:0;
     z-index: 1;
 }
-#Portfolio #title_C #main_title_C{
+#Pricing #price_title_C #price_main_title_C{
     font-size: 32px; font-weight: 700;
     text-align: center;
     width:100%;
     padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
     position:relative;
 }
-#Portfolio #title_C #main_title_C::after{
+#Pricing #price_title_C #price_main_title_C::after{
     content: ''; display: block;
     width:160px; height:1px;
     margin:0 auto;
-    background-color: aqua;
+    background-color: var(--font_color);
+    opacity: 0.25;
     position:absolute;
     bottom:2px; left:0; right:0;
+}
+#Pricing #price_title_C #price_sub_title_C{
+    text-align: center;
+    margin:0;
+}
+
+#Pricing #price_cards_C{
+    display: flex; justify-content: center;
+    justify-content: center;
+    gap : 24px;
+    max-width:960px;
+    margin:0 auto;
+}
+#Pricing #price_cards_C .price_card_C{
+    height:600.5px; width:295px;
+    padding: 60px 40px;
+    box-shadow: var(--shadow);
+    transition:transform 0.4s ease-out;
+    border-radius: 5px;
+}
+#Pricing #price_cards_C .price_card_C:nth-child(2){
+    border-top: 4px solid lightblue;
+    overflow: hidden;
+}
+#Pricing #price_cards_C .price_card_C .plan_name_C{
+    font-size: 20px; margin-bottom:15px;
+    font-weight: 400;
+}
+#Pricing #price_cards_C .price_card_C .price_C{
+    font-size: 48px; font-weight: 400;
+    color:var(--accent)
+}
+#Pricing #price_cards_C .price_card_C .price_C sup{
+    font-size: 28px;
+}
+#Pricing #price_cards_C .price_card_C .price_C span{
+    font-size: 20px; font-weight: 400;
+    color:var(--);
+    opacity:0.5;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C{
+    padding: 20px 0; margin-bottom:16px;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.checks_content_C{
+    list-style: none;
+    display:flex; align-items: center;
+    padding:10px 0;
+    height:60px;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.x_C{
+    text-decoration: line-through;
+    opacity:0.3;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.checks_content_C img{
+    padding:8px; 
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.checks_content_C img.checking{
+    filter: invert(41%) sepia(85%) saturate(541%) hue-rotate(101deg) brightness(92%) contrast(96%);
+}
+#Pricing #price_cards_C .price_card_C a{
+    width:63.4px; height: 24px;
+    text-decoration: none;
+    padding: 10px 28px;
+    border-radius: 999px;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    transition: .2s ease;
+}
+#Pricing #price_cards_C .price_card_C a:hover{
+    background-color: var(--accent);
+    color:#ffffff;
+}
+#Pricing #price_cards_C .price_card_C a#filled{
+    background-color: var(--accent);
+    color:#ffffff;
 }
