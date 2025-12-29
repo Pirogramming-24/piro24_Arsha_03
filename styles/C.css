@@ -318,8 +318,9 @@
     padding-bottom:10px;
 }
 #Team #team_cards_C .card .right hr{
-    border-top:0px;
-    border-color: black;
+    margin:0;
+    border: 1px solid #a2afbb;
+    border-top: 0;
     width:50px;
 }
 #Team #team_cards_C .card .right .description_person_C{
