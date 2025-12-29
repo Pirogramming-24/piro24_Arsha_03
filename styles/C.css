@@ -636,6 +636,34 @@
         width:100%;
     }
 }
+@media (max-width:540px){
+    :root {
+    /* 변수 값을 변경하여 레이아웃을 확장 */
+    --media_query_width: 100vw; 
+    }
+    #Portfolio #content_C{
+        height:calc(((var(--media_query_width) / var(--content_C_column_nums)) - 24px) * 1.332992 * 3 + (((var(--media_query_width) / var(--content_C_column_nums)) - 24px) * 0.67 * 7));
+    }
+    #Team #team_cards_C .card img{
+        width:120px; height:120px;
+    }
+    #Team #team_cards_C{
+        grid-template-columns: 1fr;
+        width:96%;
+    }
+    #Team #team_cards_C .card_wrapping_C{
+        width:100%;
+    }
+    #Team #team_cards_C .card_wrapping_C .card{
+        width:100%;
+    }
+    #Pricing #price_cards_C{
+        width:100%;
+    }
+    #Pricing #price_cards_C .card_holder_C{
+        width:100%;
+    }
+}
 
 /*  */
 
