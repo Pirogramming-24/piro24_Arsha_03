@@ -672,7 +672,7 @@
 .b_services-title { animation-range: 35% 45%; }
 .b_services-container { animation-range: 40% 50%; }
 .b_work-title { animation-range: 50% 62%; }
-.b_process-container { animation-range: 53% 65%; }
+.b_process-container { animation-range: 20% 65%; }
 .b_cta-container {
     opacity: 0;
     transform: translateY(60px);

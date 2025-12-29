@@ -59,8 +59,8 @@
 }
 #Portfolio #title_C #main_title_C{
     font-size: 32px; font-weight: 700;
-    text-align: center;
-    width:100%;
+    text-align: center; color: #37527E;
+    width:100%; font-family: 'Jost', sans-serif;
     padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
     position:relative;
 }
@@ -248,7 +248,7 @@
 #Team #team_title_C #team_main_title_C::before{
     content: ''; display: block;
     width:60px; height:3px;
-    margin:0 auto;
+    margin:0 auto; 
     background-color: var(--accent);
     position:absolute;
     bottom:1px; left:0; right:0;
@@ -257,7 +257,7 @@
 #Team #team_title_C #team_main_title_C{
     font-size: 32px; font-weight: 700;
     text-align: center;
-    width:100%;
+    width:100%; color: #37527E;
     padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
     position:relative;
 }
@@ -374,7 +374,7 @@
 #Pricing #price_title_C #price_main_title_C{
     font-size: 32px; font-weight: 700;
     text-align: center;
-    width:100%;
+    width:100%; color: #37527E;
     padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
     position:relative;
 }
