@@ -83,7 +83,7 @@ body{
 
 /* =========================
    Testimonials
-   (너 HTML에는 #Testimonials 안에 또 .testimonials__container가 있음)
+   (#Testimonials 안에 testimonials__container)
 ========================= */
 .testimonials{
   margin-top: 26px;
@@ -93,9 +93,12 @@ body{
 
 /* 내부 컨테이너 */
 .testimonials__container{
-  max-width: 980px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+
+  overflow: hidden;
 }
 
 /* 너 코드에 TESTIMONIALS 제목/부제 또 있으니, 보이면 예쁘게 맞춰줌 */
@@ -115,13 +118,30 @@ body{
 
 /* 슬라이드 영역 */
 .testimonials__slides{
-  margin-top: 34px;
+  display: flex;
+  width: 100%;
+  overflow: visible;
+
+  animation: tsCarousel 25s linear infinite;
+  will-change: transform;
+  
 }
 
-/* 개별 후기 */
+/* 보이는부분 */
 .testimonial__item{
+  flex: 0 0 100%;
   padding: 18px 10px 0;
+  width: 100%;
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 18px 10px 0;
+
 }
+
+.testimonials__container:hover .testimonials__slides{
+  animation-play-state: paused;
+}
+
 
 /* 아바타 */
 .testimonial__avatar{
@@ -473,4 +493,82 @@ body{
   .subscribe__title{
     font-size: 34px;
   }
+}
+
+
+
+/* 반응형: 990px 이하부터 1열로 전환 (너가 원하는 기준) */
+@media (max-width: 990px){
+  .subscribe__card{
+    grid-template-columns: 1fr;
+    padding: 42px 22px;
+    text-align: center;
+  }
+
+  /* 모바일에서 제목/설명도 가운데 정렬 */
+  .subscribe__title,
+  .subscribe__desc{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 폼은 가운데 + 가로 알약 유지 */
+  .subscribe__form{
+    width: min(540px, 100%);
+    margin: 0 auto;
+  }
+
+  /* 이미지 위치: 위로 올리지 말기 */
+  .subscribe__media{
+    order: 0;           /* 기존 -1 제거 */
+    margin-top: 24px;
+  }
+
+  .subscribe__img{
+    width: min(360px, 85%);
+  }
+
+  .subscribe__title{
+    font-size: 34px;
+  }
+}
+
+
+/* 루프 도는 애니메이션 */
+@keyframes tsCarousel {
+    0%, 16% { transform: translateX(0%);}
+    20%, 36% { transform: translateX(-100%);}
+    40%, 56% { transform: translateX(-200%);}   
+    60%, 76% { transform: translateX(-300%);}
+    80%, 96% { transform: translateX(-400%);}
+    100% { transform: translateX(-500%);}
+
+}
+
+/* 스크롤 애니메이션 , 투명도와 위치 동시에 조절 */
+@keyframes slideUpReveal {
+    from {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* 2. 애니메이션을 적용할 공통 클래스 또는 특정 ID */
+.reveal-scroll {
+    /* 애니메이션 이름, 속도곡선, 마지막 상태 유지 */
+    animation: slideUpReveal linear both;
+    
+    /* [핵심] 뷰포트(화면) 기준 스크롤 애니메이션 활성화 */
+    animation-timeline: view();
+    
+    /* [중요] 애니메이션 시작과 끝 지점 설정 
+       entry 0%: 요소의 머리가 화면 하단에 닿을 때 시작
+       cover 30%: 요소가 화면 하단에서 30% 정도 올라오면 애니메이션 완료 */
+    animation-range: entry 40% cover 50%;
 }
