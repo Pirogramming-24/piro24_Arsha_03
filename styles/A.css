@@ -44,7 +44,7 @@ body header .hide-bar {
 body header .hide-bar .left {height:100%; display: flex;}
 body header .hide-bar .left img {height:100%; padding: 3px 0 5px 10px;}
 body header .hide-bar .left .preview-devices {
-    margin-left: 15px;
+    margin-left: 15px; display: flex;
 }
 body header .hide-bar .left .preview-devices a img {
     filter: invert(100%);
