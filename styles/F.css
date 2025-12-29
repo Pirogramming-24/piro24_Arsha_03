@@ -1,48 +1,96 @@
-/* ------------------------ Capter ------------------------ */
-/* 1. 바깥 틀 (창문 역할) */
-#About-us-header {
+/* 1. 배경 (전체 영역) */
+.About-us-header {
     width: 100%;
-    height: 72px; 
-    overflow: hidden; 
-    position: relative;
+    height: 120px;
+    background-color: #f3f5fa; /* 배경색 */
+    
+    /* 내용물을 정가운데로 정렬 */
     display: flex;
-    align-items: center;
-    background-color: #F5F6F8;
-}
-
-
-#About-us-header .slider-track {
-    display: flex;
-    width: 2000px; 
-    animation: scroll 20s linear infinite; }
-
-
-#About-us-header .slider-track .slide {
-    width: 200px;  padding: 0 30px;    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 4. 이미지 스타일 (확대 효과 적용) */
-.slide img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease; 
-    padding: 0 10px;
+/* 2. [NEW] 창문 (실제로 이미지가 보이는 영역) */
+.slider-mask {
+    /* 👇 여기가 핵심! 화면의 80%만 씁니다. (양옆 10%씩 여백 생김) */
+    width: 80%; 
+    height: 100%;
+    overflow: hidden; /* 창문 밖으로 나가는 기차는 숨김 */
+    position: relative;
+    
+    /* 창문 안에서 트랙 정렬 */
+    display: flex;
+    align-items: center;
 }
 
-/* 5. 마우스 올렸을 때 확대 효과 */
+/* 3. 트랙 (기차) */
+.slider-track {
+    display: flex;
+    /* ★ 계산식 주의: 연산자 앞뒤로 띄어쓰기 필수! */
+    /* 창문(.slider-mask) 너비를 기준으로 6개가 보여야 함 */
+    width: calc(100% * 16 / 6); 
+    
+    animation: step-scroll 24s ease-in-out infinite;
+}
+
+/* 4. 개별 슬라이드 */
+.slide {
+    /* 트랙의 1/16 크기 */
+    width: calc(100% / 16); 
+    
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 👇 중요: 공간이 좁아도 절대 찌그러지지 마라! (12개 나오는 원인 차단) */
+    flex-shrink: 0; 
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
 .slide img:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
     cursor: pointer;
 }
 
+/* 5. 애니메이션 (한 칸씩 뚝뚝 이동) */
+@keyframes step-scroll {
+    0%    { transform: translateX(0); }
+    10%   { transform: translateX(0); }
+    
+    12.5% { transform: translateX(-6.25%); }
+    22.5% { transform: translateX(-6.25%); }
+    
+    25%   { transform: translateX(-12.5%); }
+    35%   { transform: translateX(-12.5%); }
+    
+    37.5% { transform: translateX(-18.75%); }
+    47.5% { transform: translateX(-18.75%); }
+    
+    50%   { transform: translateX(-25%); }
+    60%   { transform: translateX(-25%); }
+    
+    62.5% { transform: translateX(-31.25%); }
+    72.5% { transform: translateX(-31.25%); }
+    
+    75%   { transform: translateX(-37.5%); }
+    85%   { transform: translateX(-37.5%); }
+    
+    87.5% { transform: translateX(-43.75%); }
+    97.5% { transform: translateX(-43.75%); }
+    
+    100%  { transform: translateX(-50%); }
+}
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-1000px);
+/* 반응형: 모바일에서는 창문을 좀 더 넓게 써도 됨 */
+@media (max-width: 768px) {
+    .slider-mask {
+        width: 95%; /* 모바일은 꽉 차게 */
     }
 }
