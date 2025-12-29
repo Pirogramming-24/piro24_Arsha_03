@@ -122,7 +122,7 @@ body header .hide-bar .navigate .download .download-icon {
 body header .top-header {
     display: flex; justify-content: space-around;
     align-items: center;
-    height: 90px; padding: 20px 200px;
+    height: 90px; padding: 20px 5%;
 }
 body header .top-header h1.site-name {
     font-weight: 500; text-transform: uppercase;
@@ -379,13 +379,7 @@ main #Home .floating-Image img {
     }
 }
 
-/* scroll시 효과 보기 위한 임시 main-About us부분 
-    추후 삭제
-*/
-main #About {
-    height: 1500px;
-    background-color: #333;
-}
+
 
 
 /* 반응형 CSS */
@@ -505,22 +499,31 @@ body header .top-header .menus label.burger-icon {
     }    
 }
 
-
 /* Recent Blog Posts 부분 */
 body main #Recent {
     min-height: 80vh; height: auto;
     padding: 60px 0px;
     display: flex; flex-direction: column;
+    background-color: #f5f6f8;
 }
 body main #Recent .Recent-title {
     height: 30%;
     display: flex; flex-direction: column;
     align-items: center;
+    transform : translateY(0%);
+    animation: title-animation 2s ease-in-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
 }
+@keyframes title-animation {
+    0% { transform: translateY(100%); opacity: 0;}
+    100% { transform: translateY(0%); opacity: 1;}
+}
+
 body main #Recent .Recent-title .title {
     color: #37517e;
     font-family: 'Jost', sans-serif;
-    font-size: 25px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 body main #Recent .Recent-title .underline {
@@ -531,7 +534,7 @@ body main #Recent .Recent-title .underline {
 body main #Recent .Recent-title .underline:before,
 body main #Recent .Recent-title .underline:after {
     content: "";
-    width: 60px; height: 1px;
+    width: 55px; height: 1px;
     background-color: #555;
     position: absolute;
     top: 30%;
@@ -547,15 +550,38 @@ body main #Recent .Recent-title .description {
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 40px;
 }
+
+/* 카드 영역 */
 body main #Recent .Recent-Info {
     width: 100%; min-height: 400px;
-    display: flex; 
+    display: flex; padding:0 7%;
     justify-content: center; gap: 30px;
     
 }
+
+/* 카드 1개 */
 body main #Recent .Recent-Info .card {
     width: 400px;
     text-decoration: none;
+}   
+body main #Recent .Recent-Info #card1 ,
+body main #Recent .Recent-Info #card2 ,
+body main #Recent .Recent-Info #card3 {
+    animation-timeline: view();
+    animation-range: entry 30% cover 70%;
+}
+body main #Recent .Recent-Info #card1 {
+    animation: card-animation 1s ease-in-out; 
+}
+body main #Recent .Recent-Info #card2 {
+    animation: card-animation 1.4s ease-in-out;
+}
+body main #Recent .Recent-Info #card3 {
+    animation: card-animation 1.8s ease-in-out;
+}
+@keyframes card-animation {
+    0% { transform: translateY(100px); opacity: 0;}
+    100% { transform: translateY(0px); opacity: 1;}
 }
 
 
@@ -571,7 +597,7 @@ body main #Recent .Recent-Info .card .card-box img {
     
 }
 
-body main #Recent .Recent-Info .card .card-box img:hover {
+body main #Recent .Recent-Info .card:hover .card-box .card-Image img {
     transform: scale(1.1);
     transition: all 0.5s ease;
     width: 100%;
@@ -625,9 +651,9 @@ body main #Recent .Recent-Info .card .card-box .card-Info .line {
 }
 body main #Recent .Recent-Info .card .card-box .card-Info .Read-More {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    color: #a19f9f; font-weight: 500; font-size: 18px;
+    color: #8d8a8a; font-weight: 400; font-size: 18px;
     display: flex; align-items: center;
-    margin-bottom: 0;
+    margin-top: 20px;
 }
 body main #Recent .Recent-Info .card .card-box .card-Info .Read-More:after {
     content: "";
@@ -661,4 +687,31 @@ body main #Recent .Recent-Info .card:hover .card-box .card-Info h4 {
 }
 body main #Recent .Recent-Info .card:hover .card-box .card-Info .Read-More:after {
     background-color: #47b2e4;
+}
+
+@media screen and (max-width : 1200px) {
+    body main #Recent .Recent-Info {
+        width: 100%;
+        padding: 0px 10%;
+        flex-wrap: wrap; /* 넘치면 줄 바꿈 */
+        justify-content: flex-start;
+    }
+    body main #Recent .Recent-Info .card {
+        width: calc((100% - 30px) / 2); 
+    }
+}
+
+@media screen and (max-width : 768px) {
+    body main #Recent .Recent-Info {
+        width: 100%;
+        padding: 0px 10%;
+        flex-direction: column;
+        flex-wrap: wrap; /* 넘치면 줄 바꿈 */
+        justify-content: center;
+        align-items: center;
+    }
+    body main #Recent .Recent-Info .card {
+        width: 70%;
+        
+    }
 }
