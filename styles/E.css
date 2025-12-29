@@ -6,10 +6,21 @@
 	color: #444444;
 }
 
-.e_title_font {
+/* font-family, color 수정 */
+.e_join_title .e_title_font,
+.e_footer1-1 .e_title_font,
+.e_footer1-2 .e_title_font, 
+.e_footer1-3 .e_title_font, 
+.e_footer1-4 .e_title_font {
 	font-family: "Jost", sans-serif;
-	font-weight: bold;
 	color: #37527e;
+}
+ 
+/* font-family, color 수정 */
+.e_footer2 .e_title_font {
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+	color: #444444;
 }
 
 #Contact .e_info {
@@ -373,23 +384,33 @@
 	height: 43px;
 	margin: 30px 0 15px;
 	padding: 6px 8px;
+	/* 강승구 수정 */
+	display: flex;
+
 }
 
 #Contact .e_join .e_newsletter input {
 	border: 1px solid #eee;
 	outline: none;
 	border-radius: 25px;
-	width: 512px;
+	width: 550px;
 	height: 43px;
-	padding: 10px;
 	box-shadow: 0px 5px 20px rgba(22, 22, 22, 0.1);
+	/* 수정 */
+	padding: 10px 100px 10px 20px;
+	position: relative;
+	z-index: 1;
+	cursor: text;
+}
+/* #Contact .e_join .e_newsletter input:hover {
+	cursor:text;
 }
 
 #Contact .e_join .e_newsletter input:focus {
 	outline: none;
 	border: 1px solid #48b2e4;
 	transition: border-color 0.4s ease;
-}
+} */
 
 #Contact .e_join .e_newsletter button {
 	text-align: center;
@@ -402,14 +423,16 @@
 	font-size: 16px;
 	padding: 0px 20px;
 	position: absolute;
-	top: 0.5rem;
-	right: 1rem;
-	transition: opacity 0.15s ease-in-out;
+	/* 수정 */
+	top: 6px;
+	right: 8px;
+	z-index: 10;
+	transition:  0.15s ease-in-out;
 }
 
 #Contact .e_join .e_newsletter button:hover {
 	cursor: pointer;
-	opacity: 0.8;
+	background: #75c3e7;
 }
 
 footer {
@@ -468,6 +491,8 @@ footer .e_footer1 {
 	color: #6a6a6a;
 	font-size: 14px;
 	margin: 0 0 10px;
+	/* hover시 색 천천히 바뀌도록 수정 */
+	transition: all 0.3s ease-in;
 }
 
 .e_footer1-2 a:hover {
@@ -498,10 +523,13 @@ footer .e_footer1 {
 	color: #6a6a6a;
 	font-size: 14px;
 	margin: 0 0 10px;
+	/* hover시 색 천천히 바뀌도록 수정 */
+	transition: all 0.3s ease-in;
 }
 
 .e_footer1-3 a:hover {
 	color: #48b2e4;
+	
 }
 
 .e_footer1-3 a img {
