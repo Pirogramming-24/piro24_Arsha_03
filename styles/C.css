@@ -628,7 +628,7 @@
 }
 
 /* 2. 애니메이션을 적용할 공통 클래스 또는 특정 ID */
-.reveal-scroll {
+.reveal-scroll_C {
     /* 애니메이션 이름, 속도곡선, 마지막 상태 유지 */
     animation: slideUpReveal linear both;
     
@@ -638,7 +638,7 @@
     /* [중요] 애니메이션 시작과 끝 지점 설정 
        entry 0%: 요소의 머리가 화면 하단에 닿을 때 시작
        cover 30%: 요소가 화면 하단에서 30% 정도 올라오면 애니메이션 완료 */
-    animation-range: entry 40% cover 50%;
+    animation-range: entry 20% cover 30%;
 }
 
 .reveal-scroll-portfolio {
@@ -651,5 +651,5 @@
     /* [중요] 애니메이션 시작과 끝 지점 설정 
        entry 0%: 요소의 머리가 화면 하단에 닿을 때 시작
        cover 30%: 요소가 화면 하단에서 30% 정도 올라오면 애니메이션 완료 */
-    animation-range: entry 10% cover 30%;
+    animation-range: entry 10% cover 20%;
 }
