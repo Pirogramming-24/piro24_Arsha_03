@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --primary: #37517e;      /* 제목 네이비 */
+  --accent:  #47b2e4;      /* 포인트 블루 */
+  --muted:   #6c757d;      /* 회색 텍스트 */
+  --bg:      #f5f6f8;      /* 섹션 배경 */
+  --card:    #ffffff;      /* 카드 배경 */
+  --shadow:  0 10px 30px rgba(0,0,0,.08);
+  --font_color : #444444;
+  --image_height_a: 197.43px;
+  --image_height_b: 394.57px;
+  --media_query_width : 1140px;
+  --content_C_column_nums :3;
+}
+/* ------------------------ 키프레임 ------------------------ */
+@keyframes shrinkAndHide_C {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    width: calc(33.333% - 20px);
+    margin: 10px;
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.5); /* 먼저 투명해지면서 작아짐 */
+    width: calc(33.333% - 20px); /* 이때까지는 공간 유지 */
+    margin: 10px;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    width: 0;      /* 마지막에 공간을 0으로 줄여서 자동 정렬 유도 */
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+/* ------------------------ Root ------------------------ */
+
+#Portfolio,#Team,#Pricing{
+    font-family: "Jost", sans-serif;
+}
+#Portfolio{
+    padding:60px 0;
+    width:100%;
+}
+#Portfolio #title_C{
+    width: 100%;
+    padding:0 76px 60px;
+}
+#Portfolio #title_C #main_title_C::before{
+    content: ''; display: block;
+    width:60px; height:3px;
+    margin:0 auto;
+    background-color: var(--accent);
+    position:absolute;
+    bottom:1px; left:0; right:0;
+    z-index: 1;
+}
+#Portfolio #title_C #main_title_C{
+    font-size: 32px; font-weight: 700;
+    text-align: center;
+    width:100%;
+    padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
+    position:relative;
+}
+#Portfolio #title_C #main_title_C::after{
+    content: ''; display: block;
+    width:160px; height:1px;
+    margin:0 auto;
+    background-color: var(--font_color);
+    opacity: 0.25;
+    position:absolute;
+    bottom:2px; left:0; right:0;
+}
+#Portfolio #title_C #sub_title_C{
+    font-family:"Open Sans";
+    text-align: center;
+    margin:0;
+}
+#Portfolio #menu_C{
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex; justify-content: center; gap:5px;
+}
+/* 토글버튼 */
+#Portfolio #menu_C .toggle-container .toggle-input {
+  display: none;
+}
+#Portfolio #menu_C .toggle-container .toggle-label {
+  display: block;
+  width: 60px; height: 30px;
+  background-color: transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex; align-items: center; justify-content: center;
+}
+#Portfolio #menu_C .toggle-container .toggle-input:checked + .toggle-label {
+  background-color: #47b2e4;
+  color: var(--card);
+}
+/* app 토글시 app빼고 다 display:none; */
+#Portfolio:has(#toggle_2:checked) #content_C .card,
+#Portfolio:has(#toggle_2:checked) #content_C .web{
+    width: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden; /* 클릭 방지 */
+    pointer-events: none;
+    transition-delay: 0s;
+
+    /* animation: shrinkAndHide_C 0.7s ease-in-out forwards;
+  pointer-events: none; 클릭 방지 */
+}
+#Portfolio:has(#toggle_2:checked) #content_C{
+    flex-direction: row;
+}
+/* ============================= */
+/* 토글시 card빼고 다 display:none; */
+#Portfolio:has(#toggle_3:checked) #content_C .app,
+#Portfolio:has(#toggle_3:checked) #content_C .web{
+    width: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden; /* 클릭 방지 */
+    pointer-events: none;
+    transition-delay: 0s;
+}
+#Portfolio:has(#toggle_3:checked) #content_C{
+    flex-direction: row;
+}
+/* ============================= */
+/* 토글시 web빼고 다 display:none; */
+#Portfolio:has(#toggle_4:checked) #content_C .card,
+#Portfolio:has(#toggle_4:checked) #content_C .app{
+    width: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden; /* 클릭 방지 */
+    pointer-events: none;
+    transition-delay: 0s;
+}
+#Portfolio:has(#toggle_4:checked) #content_C{
+    flex-direction: row;
+}
+/* ============================= */
+#Portfolio #content_C{
+    width:var(--media_query_width); height:1047px;
+    margin:0 auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+#Portfolio #content_C .image_wrap_C{
+    width:calc(100%/3); height:calc(((var(--media_query_width)/var(--content_C_column_nums)) - 24px) * 0.6657);
+    padding:0 12px; margin-top:24px;
+    transition: 
+    width 0.5s ease, 
+    margin 0.5s ease, 
+    opacity 0.4s ease, 
+    transform 0.5s ease,
+    visibility 0.5s;
+    transition-delay: 0s;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    overflow: hidden;
+    position: relative;
+}
+#Portfolio #content_C .a{
+    height:calc(((var(--media_query_width)/var(--content_C_column_nums)) - 24px) * 1.332992);
+}
+#Portfolio:has(#toggle_2:checked) #content_C{
+    height:498.6px;
+}
+#Portfolio:has(#toggle_3:checked) #content_C{
+    height:498.6px;
+}
+#Portfolio:has(#toggle_4:checked) #content_C{
+    height:498.6px;
+}
+#Portfolio #content_C .image_wrap_C img{
+    display: block;
+    width:100%;
+    
+} 
+#Portfolio #content_C .image_wrap_C .image_description_C{
+    /* display: none 대신 이 설정들을 사용하세요 */
+    display: flex; justify-content: space-between;
+    position: absolute; 
+    bottom: -100px; /* 처음엔 이미지 아래쪽에 숨겨둠 (높이가 50%이므로) */
+    left: 0;
+    margin:0 12px;
+    padding:18px;
+    
+    background-color: rgba(244, 244, 244, 0.8); /* opacity를 따로 주지 말고 rgba 권장 */
+    width: calc(100% - 24px); 
+    height: 100px;
+    
+    transition: transform 0.3s ease-out; /* 1초는 생각보다 느릴 수 있어 0.5초 추천 */
+    /* pointer-events: none; 마우스 간섭 방지 */
+}
+
+#Portfolio #content_C .image_wrap_C:hover .image_description_C{
+    transform: translateY(-100%);
+}
+#Portfolio #content_C .image_wrap_C .image_description_C .name_box_C h4{
+    margin-top:5px;
+    font-size: 18px; color:var(--primary);
+}
+#Portfolio #content_C .image_wrap_C .image_description_C .name_box_C p{
+    margin-top:10px;
+    font-family:"Open Sans";
+    font-weight: 400; color:var(--muted)
+}
+
+#Portfolio #content_C .image_wrap_C .image_description_C .logo_box_C{
+    height: 100%;
+    display: flex; align-items: center;
+    gap:5px;
+}
+
+#Portfolio #content_C .image_wrap_C .image_description_C a{
+    display: block;
+    width:28px;height:28px;
+    cursor:pointer;
+}
+#Portfolio #content_C .image_wrap_C .image_description_C a img{
+    width:100%;
+}
+#Portfolio #content_C .image_wrap_C .image_description_C a:hover img{
+    filter: invert(61%) sepia(82%) saturate(452%) hue-rotate(159deg) brightness(96%) contrast(89%);
+}
+/* ------------------------ Team section ------------------------ */
+#Team{
+    padding:60px 0;
+}
+
+#Team #team_title_C{
+    width: 100%;
+    padding:0 76px 60px;
+}
+#Team #team_title_C #team_main_title_C::before{
+    content: ''; display: block;
+    width:60px; height:3px;
+    margin:0 auto;
+    background-color: var(--accent);
+    position:absolute;
+    bottom:1px; left:0; right:0;
+    z-index: 1;
+}
+#Team #team_title_C #team_main_title_C{
+    font-size: 32px; font-weight: 700;
+    text-align: center;
+    width:100%;
+    padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
+    position:relative;
+}
+#Team #team_title_C #team_main_title_C::after{
+    content: ''; display: block;
+    width:160px; height:1px;
+    margin:0 auto;
+    background-color: var(--font_color);
+    opacity: 0.25;
+    position:absolute;
+    bottom:2px; left:0; right:0;
+}
+#Team #team_title_C #team_sub_title_C{
+    font-family:"Open Sans";
+    text-align: center;
+    margin:0;
+}
+
+/* 카드 */
+
+#Team #team_cards_C{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap : 24px;
+    width:var(--media_query_width);
+    margin:0 auto;
+}
+#Team #team_cards_C .card_wrapping:hover{
+    transform: translateY(-10px);
+}
+#Team #team_cards_C .card{
+    height:221.5px; width:100%;
+    padding: 30px;
+    display:flex; align-items: center;
+    box-shadow: var(--shadow);
+    transition:transform 0.4s ease-out;
+    border-radius: 5px;
+}
+#Team #team_cards_C .card:hover{
+    transform: translateY(-10px);
+}
+#Team #team_cards_C .card img{
+    height:150px; width:150px;
+    border-radius:50%;
+}
+#Team #team_cards_C .card .right{
+    padding-left: 30px;
+}
+#Team #team_cards_C .card .right .card_name_C{
+    color : var(--primary);
+    font-size: 20px; font-weight: 700;
+    margin-bottom:5px;
+}
+#Team #team_cards_C .card .right .role_C{
+    font-family:"Open Sans";
+    display:inline-block;
+    font-size: 15px; font-weight: 500;
+    padding-bottom:10px;
+}
+#Team #team_cards_C .card .right hr{
+    margin:0;
+    border: 1px solid #a2afbb;
+    border-top: 0;
+    width:50px;
+}
+#Team #team_cards_C .card .right .description_person_C{
+    font-family:"Open Sans";
+    margin-top:10px;
+    font-weight: 400;
+    font-size: 14px;
+    opacity:0.6;
+}
+#Team #team_cards_C .card .right ul.app_logos_C{
+    display: flex; align-items: center; justify-content: left;
+    margin-top:12px;
+}
+#Team #team_cards_C .card .right ul.app_logos_C:hover{
+
+}
+#Team #team_cards_C .card .right li{
+    list-style: none;
+}
+#Team #team_cards_C .card .right li a{
+    display:flex; align-items: center; justify-content: center;
+    text-decoration: none; color:#ffffff;
+    width:36px; height:36px; margin-right: 8px; padding-left:0;
+    border-radius: 50%; background-color: #F4F4F4;
+}
+#Team #team_cards_C .card .right li a img{
+    color:black; width:16px; height:16px;
+}
+
+/* ------------------------ Pricing section ------------------------ */
+
+#Pricing{
+    padding:60px 0;
+    width:100%;
+    background-color: #F5F6F8;
+}
+#Pricing #price_title_C{
+    width: 100%;
+    padding:0 76px 60px;
+}
+#Pricing #price_title_C #price_main_title_C::before{
+    content: ''; display: block;
+    width:60px; height:3px;
+    margin:0 auto;
+    background-color: var(--accent);
+    position:absolute;
+    bottom:1px; left:0; right:0;
+    z-index: 1;
+}
+#Pricing #price_title_C #price_main_title_C{
+    font-size: 32px; font-weight: 700;
+    text-align: center;
+    width:100%;
+    padding-bottom: 20px; margin-bottom: 20px; margin-top: 0px;
+    position:relative;
+}
+#Pricing #price_title_C #price_main_title_C::after{
+    content: ''; display: block;
+    width:160px; height:1px;
+    margin:0 auto;
+    background-color: var(--font_color);
+    opacity: 0.25;
+    position:absolute;
+    bottom:2px; left:0; right:0;
+}
+#Pricing #price_title_C #price_sub_title_C{
+    font-family:"Open Sans";
+    text-align: center;
+    margin:0;
+}
+
+#Pricing #price_cards_C{
+    display: flex; justify-content: center; flex-wrap: wrap;
+    justify-content: center;
+    width:var(--media_query_width);
+    margin:0 auto;
+}
+#Pricing #price_cards_C .card_holder_C{
+    width:calc(100%/3);
+    padding:0 12px; margin-top: 24px;
+}
+#Pricing #price_cards_C .price_card_C{
+    height:620.5px; width:100%;
+    padding: 60px 40px;
+    box-shadow: var(--shadow);
+    transition:transform 0.4s ease-out;
+    border-radius: 5px;
+}
+@keyframes scale_up_C{
+    from{
+        opacity:0;
+        scale:0.8;
+    }
+    to{
+        opacity:1;
+        scale:1;
+    }
+}
+.scale_up_ani_C{
+    /* 애니메이션 이름, 속도곡선, 마지막 상태 유지 */
+    animation: scale_up_C linear both;
+    
+    /* [핵심] 뷰포트(화면) 기준 스크롤 애니메이션 활성화 */
+    animation-timeline: view();
+}
+.card_holder_C:nth-child(1) { animation-range: entry 10% entry 40%; }
+.card_holder_C:nth-child(2) { animation-range: entry 20% entry 50%; }
+.card_holder_C:nth-child(3) { animation-range: entry 30% entry 60%; }
+#Pricing #price_cards_C .price_card_C:nth-child(2){
+    border-top: 4px solid lightblue;
+    overflow: hidden;
+}
+#Pricing #price_cards_C .price_card_C .plan_name_C{
+    font-size: 20px; margin-bottom:15px;
+    font-weight: 400;
+}
+#Pricing #price_cards_C .price_card_C .price_C{
+    font-size: 48px; font-weight: 400;
+    color:var(--accent)
+}
+#Pricing #price_cards_C .price_card_C .price_C sup{
+    font-size: 28px;
+}
+#Pricing #price_cards_C .price_card_C .price_C span{
+    font-size: 20px; font-weight: 400;
+    color:var(--);
+    opacity:0.5;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C{
+    padding: 20px 0; margin-bottom:16px;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.checks_content_C{
+    font-family:"Open Sans";
+    list-style: none;
+    display:flex; align-items: center;
+    padding:10px 0;
+    height:60px;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.x_C{
+    text-decoration: line-through;
+    opacity:0.3;
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.checks_content_C img{
+    padding:8px; 
+}
+#Pricing #price_cards_C .price_card_C ul.checks_C li.checks_content_C img.checking{
+    filter: invert(41%) sepia(85%) saturate(541%) hue-rotate(101deg) brightness(92%) contrast(96%);
+}
+#Pricing #price_cards_C .price_card_C a{
+    width:63.4px; height: 24px;
+    text-decoration: none;
+    padding: 10px 28px;
+    border-radius: 999px;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    transition: .2s ease;
+}
+#Pricing #price_cards_C .price_card_C a:hover{
+    background-color: var(--accent);
+    color:#ffffff;
+}
+#Pricing #price_cards_C .price_card_C a#filled{
+    background-color: var(--accent);
+    color:#ffffff;
+}
+
+@media(min-width:1400px){
+    :root{
+        --media_query_width:1320px;
+    }
+    #Portfolio #content_C{
+        height:1206px;
+    }
+    #Portfolio:has(#toggle_2:checked) #content_C{
+        height:579px;
+    }
+    #Portfolio:has(#toggle_3:checked) #content_C{
+        height:579px;
+    }
+    #Portfolio:has(#toggle_4:checked) #content_C{
+        height:579px;
+    }
+}
+
+@media (max-width:1199px){
+    :root{
+        --media_query_width:960px;
+    }
+    #Portfolio #content_C{ 
+        height:886px;
+    }
+    #Portfolio:has(#toggle_2:checked) #content_C{
+        height:418.6px;
+    }
+    #Portfolio:has(#toggle_3:checked) #content_C{
+        height:418.6px;
+    }
+    #Portfolio:has(#toggle_4:checked) #content_C{
+        height:418.6px;
+    }
+}
+
+@media (max-width:991px){
+    :root{
+        --media_query_width:720px;
+        --content_C_column_nums :2;
+    }
+    #Portfolio #content_C{
+         height:1465px;
+    }
+    /* app체크 */
+    #Portfolio:has(#toggle_2:checked) #content_C{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        height: 650px;
+    }
+    #Portfolio:has(#toggle_2:checked) #content_C .app_two{
+        order: -3;
+    }
+    #Portfolio:has(#toggle_2:checked) #content_C .app_three{
+        order: -2;
+    }
+    #Portfolio:has(#toggle_2:checked) #content_C .app_one{
+        order: -1;
+    }
+    /* card체크 */
+    #Portfolio:has(#toggle_3:checked) #content_C {
+        height:600px;
+        flex-direction: column;
+    }
+    #Portfolio:has(#toggle_3:checked) #content_C .card_two{
+        order: -3;
+    }
+    #Portfolio:has(#toggle_3:checked) #content_C .card_three{
+        order: -2;
+    }
+    #Portfolio:has(#toggle_3:checked) #content_C .card_one{
+        order: -1;
+    }
+    /* web체크 */
+    #Portfolio:has(#toggle_4:checked) #content_C{
+        display: flex ;
+        flex-direction: column ;
+        flex-wrap: wrap ;
+        justify-content: flex-start ;
+        align-content: flex-start ;
+        height: 650px ;
+    }
+    #Portfolio:has(#toggle_4:checked) #content_C .web_two{
+        order: -3;
+    }
+    #Portfolio:has(#toggle_4:checked) #content_C .web_three{
+        order: -2;
+    }
+    #Portfolio:has(#toggle_4:checked) #content_C .web_one{
+        order: -1;
+    }
+
+    
+    #Portfolio #content_C .image_wrap_C{
+        width:calc(100%/2)
+    }
+    #Team #team_cards_C{
+        grid-template-columns: 1fr;
+    }
+    #Pricing #price_cards_C .card_holder_C{
+        width:100%;
+    }
+}
+
+@media (max-width:768px){
+    :root{
+        --media_query_width:540px;
+        --content_C_column_nums :1;
+    }
+    #Portfolio #content_C{
+        height:4345px;
+        max-width: 100%;
+    }
+    #Portfolio:has(#toggle_2:checked) #content_C {
+        height:1500px;
+        display: flex;
+        flex-direction: column;
+    }
+    #Portfolio:has(#toggle_3:checked) #content_C {
+        height:1500px;
+        display: flex;
+        flex-direction: column;
+    }
+    #Portfolio:has(#toggle_4:checked) #content_C {
+        height:1500px;
+        display: flex;
+        flex-direction: column;
+    }
+    #Portfolio #content_C .image_wrap_C{
+        width:100%;
+    }
+    #Team #team_cards_C{
+        grid-template-columns: 1fr;
+    }
+    #Pricing #price_cards_C{
+        grid-template-columns: 1fr;
+    }
+    #Pricing #price_cards_C .card_holder_C{
+        width:100%;
+    }
+}
+
+/*  */
+
+/* 1. 애니메이션 정의: 투명도와 위치를 동시에 조절 */
+@keyframes slideUpReveal {
+    from {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 2. 애니메이션을 적용할 공통 클래스 또는 특정 ID */
+.reveal-scroll_C {
+    /* 애니메이션 이름, 속도곡선, 마지막 상태 유지 */
+    animation: slideUpReveal linear both;
+    
+    /* [핵심] 뷰포트(화면) 기준 스크롤 애니메이션 활성화 */
+    animation-timeline: view();
+    
+    /* [중요] 애니메이션 시작과 끝 지점 설정 
+       entry 0%: 요소의 머리가 화면 하단에 닿을 때 시작
+       cover 30%: 요소가 화면 하단에서 30% 정도 올라오면 애니메이션 완료 */
+    animation-range: entry 20% cover 30%;
+}
+
+.reveal-scroll-portfolio {
+    /* 애니메이션 이름, 속도곡선, 마지막 상태 유지 */
+    animation: slideUpReveal linear both;
+    
+    /* [핵심] 뷰포트(화면) 기준 스크롤 애니메이션 활성화 */
+    animation-timeline: view();
+    
+    /* [중요] 애니메이션 시작과 끝 지점 설정 
+       entry 0%: 요소의 머리가 화면 하단에 닿을 때 시작
+       cover 30%: 요소가 화면 하단에서 30% 정도 올라오면 애니메이션 완료 */
+    animation-range: entry 10% cover 20%;
+}
