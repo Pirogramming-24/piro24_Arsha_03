@@ -662,8 +662,8 @@ body main #Recent .Recent-Info .card .card-box .card-Info .Read-More:after {
     width: 24px; height: 18px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('/images/A/right-arrow.png');
-    mask-image: url('/images/A/right-arrow.png');
+    background-image: url('images/A/right-arrow.png');
+    mask-image: url('images/A/right-arrow.png');
     -webkit-mask-size: contain;
     mask-size: contain;
     
