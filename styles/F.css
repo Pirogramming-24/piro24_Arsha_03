@@ -1,54 +1,53 @@
-/* 1. 배경 (전체 영역) */
+/* 1. 전체 배경 (회색 영역) */
 .About-us-header {
     width: 100%;
     height: 120px;
-    background-color: #f3f5fa; /* 배경색 */
-    
-    /* 내용물을 정가운데로 정렬 */
+    background-color: #f3f5fa;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 창문(mask)을 정가운데로 */
     align-items: center;
 }
 
-/* 2. [NEW] 창문 (실제로 이미지가 보이는 영역) */
+/* 2. 창문 (Mask) - 여기서 6개만 보이도록 시야를 제한함 */
 .slider-mask {
-    /* 👇 여기가 핵심! 화면의 80%만 씁니다. (양옆 10%씩 여백 생김) */
+    /* 화면의 80%만 사용 (나머지 20%는 양옆 여백이 됨) */
     width: 80%; 
     height: 100%;
-    overflow: hidden; /* 창문 밖으로 나가는 기차는 숨김 */
+    overflow: hidden; /* ★ 이 창문을 벗어나는 10개의 이미지는 잘라버림 */
     position: relative;
-    
-    /* 창문 안에서 트랙 정렬 */
-    display: flex;
-    align-items: center;
 }
 
-/* 3. 트랙 (기차) */
+/* 3. 기차 트랙 (Track) */
 .slider-track {
     display: flex;
-    /* ★ 계산식 주의: 연산자 앞뒤로 띄어쓰기 필수! */
-    /* 창문(.slider-mask) 너비를 기준으로 6개가 보여야 함 */
+    /* ★ [수학 공식] 
+       창문 너비(100%)가 '6개 분량'이므로, 
+       16개 분량의 길이는 (100% / 6 * 16)이 되어야 함.
+    */
     width: calc(100% * 16 / 6); 
     
+    /* 애니메이션: 끊어서 이동 */
     animation: step-scroll 24s ease-in-out infinite;
+
 }
 
-/* 4. 개별 슬라이드 */
+/* 4. 개별 칸 (Slide) */
 .slide {
-    /* 트랙의 1/16 크기 */
+    /* 트랙 전체 길이의 1/16 만큼 차지 */
     width: calc(100% / 16); 
     
-    padding: 0 15px;
+    /* 절대 찌그러지지 않게 고정 (이게 없으면 12개가 억지로 나옴) */
+    flex-shrink: 0; 
+    
+    padding: 40px 15px 0 0px; /* 이미지 사이 간격 */
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* 👇 중요: 공간이 좁아도 절대 찌그러지지 마라! (12개 나오는 원인 차단) */
-    flex-shrink: 0; 
+    box-sizing: border-box; /* 패딩 포함해서 크기 계산 */
 }
 
 .slide img {
-    width: 100%;
+    width: 45%;
     height: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -59,38 +58,97 @@
     cursor: pointer;
 }
 
-/* 5. 애니메이션 (한 칸씩 뚝뚝 이동) */
+/* 5. 애니메이션 (한 칸씩 이동) */
+/* 한 칸의 크기 = 100% / 16 = 6.25% */
 @keyframes step-scroll {
+    /* 1번째 (정지) */
     0%    { transform: translateX(0); }
     10%   { transform: translateX(0); }
     
+    /* 2번째 (이동) */
     12.5% { transform: translateX(-6.25%); }
     22.5% { transform: translateX(-6.25%); }
     
+    /* 3번째 */
     25%   { transform: translateX(-12.5%); }
     35%   { transform: translateX(-12.5%); }
     
+    /* 4번째 */
     37.5% { transform: translateX(-18.75%); }
     47.5% { transform: translateX(-18.75%); }
     
+    /* 5번째 */
     50%   { transform: translateX(-25%); }
     60%   { transform: translateX(-25%); }
     
+    /* 6번째 */
     62.5% { transform: translateX(-31.25%); }
     72.5% { transform: translateX(-31.25%); }
     
+    /* 7번째 */
     75%   { transform: translateX(-37.5%); }
     85%   { transform: translateX(-37.5%); }
     
+    /* 8번째 */
     87.5% { transform: translateX(-43.75%); }
     97.5% { transform: translateX(-43.75%); }
     
+    /* 복귀 */
     100%  { transform: translateX(-50%); }
 }
+/* =========================================
+   반응형 설정 (Responsive Breakpoints)
+   원리: 트랙 길이를 조절하면 화면에 보이는 개수가 바뀝니다.
+   공식: width: calc(100% * 전체개수16 / 보여줄개수N)
+   ========================================= */
 
-/* 반응형: 모바일에서는 창문을 좀 더 넓게 써도 됨 */
-@media (max-width: 768px) {
+/* 1. [1400px ~ 1200px] : 5개 노출 */
+@media screen and (max-width: 1400px) {
+    .slider-track {
+        /* 16개 중 5개가 보여야 함 */
+        width: calc(100% * 16 / 5);
+    }
+}
+
+/* 2. [1199px ~ 991px] : 4개 노출 */
+@media screen and (max-width: 1200px) {
+    .slider-track {
+        width: calc(100% * 16 / 4);
+    }
+}
+
+/* 3. [990px ~ 576px] : 3개 노출 (태블릿/작은 노트북) */
+@media screen and (max-width: 990px) {
     .slider-mask {
-        width: 95%; /* 모바일은 꽉 차게 */
+        width: 90%; /* 화면이 좁으니 여백을 좀 줄여서 이미지를 더 키움 */
+    }
+    .slider-track {
+        width: calc(100% * 16 / 3);
+    }
+}
+
+/* 4. [575px ~ 481px] : 2개 노출 (큰 모바일) */
+@media screen and (max-width: 575px) {
+    .slider-mask {
+        width: 95%; /* 모바일은 꽉 차게 쓰는 게 예쁨 */
+    }
+    .slider-track {
+        width: calc(100% * 16 / 2);
+    }
+}
+
+/* 5. [480px ~ 320px] : 1개 노출 (일반 모바일) */
+@media screen and (max-width: 480px) {
+    .slider-mask {
+        width: 100%; /* 여백 없이 꽉 채움 */
+    }
+    .slider-track {
+        /* 화면에 딱 1개만 대문짝만하게 나옴 */
+        width: calc(100% * 16 / 1); 
+    }
+    
+    /* 1개만 나올 땐 패딩이 너무 넓으면 이미지가 작아지니 살짝 줄임 */
+    .slide {
+        padding: 0 20px; 
     }
 }
