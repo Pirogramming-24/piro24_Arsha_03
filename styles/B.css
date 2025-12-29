@@ -5,13 +5,13 @@
 .box{
     animation-timeline: scroll()
 }
-body {
+#About, #Service {
     margin: 0; padding: 0;
     font-family: "Jost", sans-serif;
     line-height: 1.5;
     color: #444444;
 }
-img {
+#About img, #Service img {
     max-width: 100%;
     display: block;
 }
@@ -21,8 +21,8 @@ img {
     padding-left: 24px;
     padding-right: 24px;
 }
-/* 1. about-intro */
-.b_about-intro {
+/* 1. About-intro */
+.b_About-intro {
     background-color: #ffffff;
     padding: 80px 0;
 }
@@ -107,7 +107,7 @@ img {
     background: url("../images/B/check1.PNG") no-repeat center / contain;
 }
 /* 버튼 */
-.b_about-btn {
+.b_About-btn {
     display: inline-block;
     margin-top: 0;
     padding: 10px 28px;
@@ -118,13 +118,13 @@ img {
     font-weight: 500;
     transition: all 0.3s ease;
 }
-.b_about-btn:hover {
+.b_About-btn:hover {
     background-color: #48B2E4;
     color: #ffffff;
 }
 
-/* 2. about-questions */
-.b_about-questions {
+/* 2. About-questions */
+.b_About-questions {
     background-color: #F5F6F8;
     padding: 80px 0;
 }
@@ -229,8 +229,8 @@ img {
     color: #444444;
 }
 
-/* 3. about-skills */
-.b_about-skills {
+/* 3. About-skills */
+.b_About-skills {
     background-color: #ffffff;
     padding: 80px 0;
 }
@@ -580,7 +580,7 @@ img {
     }
 }
 @media (min-width: 991px) {
-    .b_about-questions:has(.b_accordion-item[open]) .b_questions-right img {
+    .b_About-questions:has(.b_accordion-item[open]) .b_questions-right img {
         transform: scale(1.05);
     }
 }
@@ -630,30 +630,49 @@ img {
         transform: translateY(0);
     }
 }
-.b_about-intro,
+
+@supports (animation-timeline: view()) {
+.b_About-intro,
 .b_questions-left,
 .b_questions-right img,
 .b_accordion,
-.b_about-skills,
+.b_About-skills,
 .b_services-title,
 .b_services-container,
 .b_work-title,
 .b_process-container {
     opacity: 0;
-    transform: translateY(60px);
-    animation: fade-up-permanent 0.8s ease-out forwards;
-    animation-timeline: scroll();
-    animation-fill-mode: both;
+    transform: translateY(80px);
+
+    animation: fade-up-permanent 1s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+  }
 }
-.b_about-intro { animation-range: 0% 8%; }
+@supports not (animation-timeline: view()) {
+.b_About-intro,
+.b_questions-left,
+.b_questions-right img,
+.b_accordion,
+.b_About-skills,
+.b_services-title,
+.b_services-container,
+.b_work-title,
+.b_process-container {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.b_About-intro { animation-range: 0% 8%; }
 .b_questions-left { animation-range: 8% 16%; }
 .b_questions-right img { animation-range: 12% 20%; }
 .b_accordion { animation-range: 16% 24%; }
-.b_about-skills { animation-range: 24% 32%; }
+.b_About-skills { animation-range: 24% 32%; }
 .b_services-title { animation-range: 35% 45%; }
-.b_services-container { animation-range: 43% 53%; }
+.b_services-container { animation-range: 40% 50%; }
 .b_work-title { animation-range: 50% 62%; }
-.b_process-container { animation-range: 65% 80%; }
+.b_process-container { animation-range: 53% 65%; }
 .b_cta-container {
     opacity: 0;
     transform: translateY(60px);
@@ -670,7 +689,7 @@ img {
 .b_service-card {
     opacity: 0;
     animation: fade-up 0.6s ease-out forwards;
-    animation-timeline: scroll();
+    animation-timeline: view();
     animation-fill-mode: both;
 }
 @media (min-width: 1201px) {
@@ -732,7 +751,7 @@ img {
     from { transform: scaleX(0); }
     to   { transform: scaleX(var(--target)); }
 }
-.b_about-skills .b_skill-fill {
+.b_About-skills .b_skill-fill {
     animation-timeline: view();
     animation-range: entry 20% cover 50%;
     animation: skill-fill 1.6s ease-out both;
