@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="./styles/A.css">
@@ -10,9 +11,7 @@
     <link rel="stylesheet" href="./styles/C.css">
     <link rel="stylesheet" href="./styles/D.css">
     <link rel="stylesheet" href="./styles/E.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2family=Jost:wght@500;700&display=swap" rel="stylesheet">
     <title>Arsha bootstrap Template Demo</title>
 </head>
 
@@ -24,72 +23,163 @@
         <div id="About"></div>
         <div id="Service"></div>
         <div id="Portfolio">
-            <div id="title_C">
+            <div id="title_C" class="reveal-scroll">
                 <h2 id="main_title_C">PORTFOLIO</h2>
                 <p id="sub_title_C">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div>
-            <div id="menu_C">
-                <ul>
-                    <li style="border-radius: 20px;
-                    background-color: #47b2e4;
-                    color:#ffffff">All</li>
-                    <li>App</li>
-                    <li>Card</li>
-                    <li>Web</li>
-                </ul>
+            <div id="menu_C" class="reveal-scroll">
+                <div class="toggle-container">
+                    <input type="radio" name="myGroup_C" id="toggle_1" class="toggle-input" checked>
+                    <label for="toggle_1" class="toggle-label">
+                        All
+                    </label>
+                </div>
+                <div class="toggle-container">
+                    <input type="radio" name="myGroup_C" id="toggle_2" class="toggle-input">
+                    <label for="toggle_2" class="toggle-label">
+                        App
+                    </label>
+                </div>
+                <div class="toggle-container">
+                    <input type="radio" name="myGroup_C" id="toggle_3" class="toggle-input">
+                    <label for="toggle_3" class="toggle-label">
+                        Card
+                    </label>
+                </div>
+                <div class="toggle-container">
+                    <input type="radio" name="myGroup_C" id="toggle_4" class="toggle-input">
+                    <label for="toggle_4" class="toggle-label">
+                        Web
+                    </label>
+                </div>
             </div>
-            <div id="content_C">
-                <div class="content_val_C">
-                    <div class="image_wrap b">
-                        <img src="/images/C/portfoilo/one_app.webp" alt="">
-                        <div class="explain">Hello</div>
+            <div id="content_C" class="reveal-scroll-portfolio">
+                <span class="image_wrap_C a app app_one">
+                    <img src="/images/C/portfoilo/one_app.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>App 1</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="image_wrap b">
-                        <img src="/images/C/portfoilo/two_web.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C a web web_two">
+                    <img src="/images/C/portfoilo/two_web.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>Branding 2</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                </div>
-                <div class="content_val_C">
-                    <div class="image_wrap a">
-                        <img src="/images/C/portfoilo/one_card.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C card card_one">
+                    <img src="/images/C/portfoilo/one_card.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>Product 1</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="image_wrap a">
-                        <img src="/images/C/portfoilo/two_app.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C app app_two">
+                    <img src="/images/C/portfoilo/two_app.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>App 2</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="image_wrap a">
-                        <img src="/images/C/portfoilo/three_app.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C app app_three">
+                    <img src="/images/C/portfoilo/three_app.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>App 3</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="image_wrap a">
-                        <img src="/images/C/portfoilo/three_web.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C web web_three">
+                    <img src="/images/C/portfoilo/three_web.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>Branding 3</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                </div>
-                <div class="content_val_C">
-                    <div class="image_wrap a">
-                        <img src="/images/C/portfoilo/one_web.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C web web_one">
+                    <img src="/images/C/portfoilo/one_web.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>Branding 1</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="image_wrap b">
-                        <img src="/images/C/portfoilo/two_card.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C a card card_two">
+                    <img src="/images/C/portfoilo/two_card.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>Product 2</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                    <div class="image_wrap a">
-                        <img src="/images/C/portfoilo/three_card.webp" alt="">
-                        <div class="explain">Hello</div>
+                </span>
+                <span class="image_wrap_C card card_three">
+                    <img src="/images/C/portfoilo/three_card.webp" alt="">
+                    <div class="image_description_C">
+                        <div class="name_box_C">
+                            <h4>Product 3</h4>
+                            <p>Lorem ipsum, dolor sit</p>
+                        </div>
+                        <div class="logo_box_C">
+                            <a href="#"><img src="/images/C/search.svg" alt=""></a>
+                            <a href="#"><img src="/images/C/link-45deg.svg" alt=""></a>
+                        </div>
                     </div>
-                </div>
+                </span>
             </div>
         </div>
         <div id="Team">
-            <div id="team_title_C">
+            <div id="team_title_C" class="reveal-scroll">
                 <h2 id="team_main_title_C">TEAM</h2>
                 <p id="team_sub_title_C">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div>
             <div id="team_cards_C">
-                <div class="card">
+                <div class="card reveal-scroll">
                     <img src="/images/C/person-m-7.webp" alt="">
                     <div class="right">
                         <h4 class="card_name_C">Walter White</h4>
@@ -104,7 +194,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card reveal-scroll">
                     <img src="/images/C/person-f-8.webp" alt="">
                     <div class="right">
                         <h4 class="card_name_C">Sarah Jhonson</h4>
@@ -119,7 +209,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card reveal-scroll">
                     <img src="/images/C/person-m-6.webp" alt="">
                     <div class="right">
                         <h4 class="card_name_C">William Anderson</h4>
@@ -134,7 +224,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card reveal-scroll">
                     <img src="/images/C/person-f-4.webp" alt="">
                     <div class="right">
                         <h4 class="card_name_C">Amanda Jepson</h4>
@@ -152,46 +242,52 @@
             </div>
         </div>
         <div id="Pricing">
-            <div id="price_title_C">
+            <div id="price_title_C" class="reveal-scroll">
                 <h2 id="price_main_title_C">PRICING</h2>
                 <p id="price_sub_title_C">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div>
             <div id="price_cards_C">
-                <div class="price_card_C">
-                    <h3 class="plan_name_C">Free Plan</h3>
-                    <h4 class="price_C"><sup>$</sup>0<span> / month</span></h4>
-                    <ul class="checks_C">
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Quam adipiscing vitae proin</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nec feugiat nisl pretium</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nulla at volutpat diam uteera</li>
-                        <li class="checks_content_C x_C"><img src="/images/C/x.svg" alt="">Pharetra massa massa ultricies</li>
-                        <li class="checks_content_C x_C"><img src="/images/C/x.svg" alt="">Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#">Buy Now</a>
+                <div class="card_holder_C reveal-scroll">
+                    <div class="price_card_C">
+                        <h3 class="plan_name_C">Free Plan</h3>
+                        <h4 class="price_C"><sup>$</sup>0<span> / month</span></h4>
+                        <ul class="checks_C">
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Quam adipiscing vitae proin</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nec feugiat nisl pretium</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nulla at volutpat diam uteera</li>
+                            <li class="checks_content_C x_C"><img src="/images/C/x.svg" alt="">Pharetra massa massa ultricies</li>
+                            <li class="checks_content_C x_C"><img src="/images/C/x.svg" alt="">Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <a href="#">Buy Now</a>
+                    </div>
                 </div>
-                <div class="price_card_C">
-                    <h3 class="plan_name_C">Business Plan</h3>
-                    <h4 class="price_C"><sup>$</sup>29<span> / month</span></h4>
-                    <ul class="checks_C">
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Quam adipiscing vitae proin</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nec feugiat nisl pretium</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nulla at volutpat diam uteera</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Pharetra massa massa ultricies</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#" id="filled">Buy Now</a>
+                <div class="card_holder_C reveal-scroll">
+                    <div class="price_card_C">
+                        <h3 class="plan_name_C">Business Plan</h3>
+                        <h4 class="price_C"><sup>$</sup>29<span> / month</span></h4>
+                        <ul class="checks_C">
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Quam adipiscing vitae proin</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nec feugiat nisl pretium</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nulla at volutpat diam uteera</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Pharetra massa massa ultricies</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <a href="#" id="filled">Buy Now</a>
+                    </div>
                 </div>
-                <div class="price_card_C">
-                    <h3 class="plan_name_C">Developer Plan</h3>
-                    <h4 class="price_C"><sup>$</sup>49<span> / month</span></h4>
-                    <ul class="checks_C">
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Quam adipiscing vitae proin</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nec feugiat nisl pretium</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nulla at volutpat diam uteera</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Pharetra massa massa ultricies</li>
-                        <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Massa ultricies mi quis hendrerit</li>
-                    </ul>
-                    <a href="#">Buy Now</a>
+                <div class="card_holder_C reveal-scroll">
+                    <div class="price_card_C">
+                        <h3 class="plan_name_C">Developer Plan</h3>
+                        <h4 class="price_C"><sup>$</sup>49<span> / month</span></h4>
+                        <ul class="checks_C">
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Quam adipiscing vitae proin</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nec feugiat nisl pretium</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Nulla at volutpat diam uteera</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Pharetra massa massa ultricies</li>
+                            <li class="checks_content_C"><img class="checking" src="/images/C/check-lg.svg" alt="">Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <a href="#">Buy Now</a>
+                    </div>
                 </div>
             </div>
         </div>
