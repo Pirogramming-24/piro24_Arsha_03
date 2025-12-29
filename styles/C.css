@@ -114,8 +114,8 @@
     pointer-events: none;
     transition-delay: 0s;
 
-    animation: shrinkAndHide_C 0.7s ease-in-out forwards;
-  pointer-events: none; /* 클릭 방지 */
+    /* animation: shrinkAndHide_C 0.7s ease-in-out forwards;
+  pointer-events: none; 클릭 방지 */
 }
 #Portfolio:has(#toggle_2:checked) #content_C{
     flex-direction: row;
