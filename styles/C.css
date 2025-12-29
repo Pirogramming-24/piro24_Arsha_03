@@ -412,6 +412,26 @@
     transition:transform 0.4s ease-out;
     border-radius: 5px;
 }
+@keyframes scale_up_C{
+    from{
+        opacity:0;
+        scale:0.8;
+    }
+    to{
+        opacity:1;
+        scale:1;
+    }
+}
+.scale_up_ani_C{
+    /* 애니메이션 이름, 속도곡선, 마지막 상태 유지 */
+    animation: scale_up_C linear both;
+    
+    /* [핵심] 뷰포트(화면) 기준 스크롤 애니메이션 활성화 */
+    animation-timeline: view();
+}
+.card_holder_C:nth-child(1) { animation-range: entry 10% entry 40%; }
+.card_holder_C:nth-child(2) { animation-range: entry 20% entry 50%; }
+.card_holder_C:nth-child(3) { animation-range: entry 30% entry 60%; }
 #Pricing #price_cards_C .price_card_C:nth-child(2){
     border-top: 4px solid lightblue;
     overflow: hidden;
