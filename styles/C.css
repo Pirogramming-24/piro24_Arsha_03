@@ -288,6 +288,9 @@
     width:var(--media_query_width);
     margin:0 auto;
 }
+#Team #team_cards_C .card_wrapping:hover{
+    transform: translateY(-10px);
+}
 #Team #team_cards_C .card{
     height:221.5px; width:100%;
     padding: 30px;
@@ -299,7 +302,7 @@
 #Team #team_cards_C .card:hover{
     transform: translateY(-10px);
 }
-#Team #team_cards_C .card>img{
+#Team #team_cards_C .card img{
     height:150px; width:150px;
     border-radius:50%;
 }
