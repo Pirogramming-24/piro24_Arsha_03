@@ -1,0 +1,758 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;700&display=swap');
+
+* {box-sizing: border-box;}
+
+.box{
+    animation-timeline: scroll()
+}
+#About, #Service {
+    margin: 0; padding: 0;
+    font-family: "Jost", sans-serif;
+    line-height: 1.5;
+    color: #444444;
+}
+#About img, #Service img {
+    max-width: 100%;
+    display: block;
+}
+.b_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+/* 1. About-intro */
+.b_About-intro {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+/* Title */
+.b_intro-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.b_intro-title h2 {
+    font-family: "Jost", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #37527E;
+    margin-bottom: 15px;
+}
+/* 회색 라인 */
+.b_intro-line {
+    position: relative;
+    width: 160px;
+    height: 1px;
+    background-color: #b7b7b7;
+    margin: 0 auto;
+}
+/* 파란 라인 */
+.b_intro-line::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: #48B2E4;
+}
+/* Content Layout */
+.b_intro-content {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+/* 왼쪽 컬럼 */
+.b_intro-left-col {
+    display: flex;
+    flex-direction: column;
+}
+/* 왼쪽 컬럼, 오른쪽 컬럼 */
+.b_intro-left-col,.b_intro-right {
+    width: 50%;
+}
+.b_intro-left p,.b_intro-right p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444444;
+}
+/* 오른쪽 컬럼 */
+.b_intro-right p {
+    margin-bottom: 14px;
+}
+/* 리스트 */
+.b_intro-list ul {
+    padding-left: 20px;
+    list-style: none;
+    margin-top: 15px;
+}
+.b_intro-list li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #444444;
+}
+/* 체크 아이콘 */
+.b_intro-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+
+    width: 18px;
+    height: 18px;
+
+    background: url("../images/B/check1.PNG") no-repeat center / contain;
+}
+/* 버튼 */
+.b_About-btn {
+    display: inline-block;
+    margin-top: 0;
+    padding: 10px 28px;
+    border: 2px solid #48B2E4;
+    color: #48B2E4;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.b_About-btn:hover {
+    background-color: #48B2E4;
+    color: #ffffff;
+}
+
+/* 2. About-questions */
+.b_About-questions {
+    background-color: #F5F6F8;
+    padding: 80px 0;
+}
+.b_questions-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+/* 왼쪽 컬럼, 오른쪽 컬럼 */
+.b_questions-left {
+    width: 55%;
+}
+.b_questions-right {
+    width: 45%;
+}
+.b_questions-right img {
+    width: 70%;
+    margin: 0 auto;
+    transform: scale(1);
+    transition: transform 0.6s ease;
+}
+.b_questions-left h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #37527E;
+    margin-bottom:0;
+    line-height: 1.3;
+}
+.b_questions-left p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #848484;
+    margin-bottom: 20px;
+}
+/* 아코디언 */
+.b_accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.b_accordion-item {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+.b_accordion-header {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #37527E;
+    position: relative;
+}
+.b_num {
+    color: #48B2E4;
+} 
+.b_accordion-header::-webkit-details-marker {
+    display: none;
+}
+/* 커스텀 화살표 */
+.b_accordion-header::after {
+    content: "›";
+    position: absolute;
+    right: 20px;
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+/* 열렸을 때 화살표 회전 */
+.b_accordion-item[open] .b_accordion-header::after {
+    transform: rotate(90deg);
+}
+.b_accordion-header .num {
+    color: #48B2E4;
+    font-weight: 700;
+}
+.b_accordion-header .question {
+    flex: 1;
+}
+.b_accordion-item[open] .b_accordion-header {
+    color: #48B2E4;
+}
+.b_accordion-item[open] .b_accordion-body {
+    max-height: 140px;
+    padding: 0 20px 20px;
+    opacity: 1;
+}
+.b_accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: all 0.35s ease;
+    opacity: 0;
+}
+.b_accordion-body p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444444;
+}
+
+/* 3. About-skills */
+.b_About-skills {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+.b_skills-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+/* 좌측 이미지 */
+.b_skills-left {
+    width: 50%;
+}
+.b_skills-left img {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+/* 우측 내용 */
+.b_skills-right {
+    width: 50%;
+}
+/* 텍스트 */
+.b_skills-right h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #37527E;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+.b_skills-right p {
+    font-size: 15px;
+    color: #848484;
+    margin-bottom: 30px;
+}
+/* progress bar */
+.b_skills-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.b_skill-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #37527E;
+}
+.b_skill-name, .b_skill-percent {
+        color: #444444;
+}
+.b_skill-track {
+    width: 100%;
+    height: 10px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+.b_skill-fill {
+    height: 100%;
+    background-color: #37527E;
+}
+
+/* ======SERVICES ========*/
+/* 1. services */
+.b_services {
+    background-color: #f5f6f8;
+    padding: 80px 0;
+}
+
+/* 타이틀 영역 */
+.b_services-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.b_services-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #37527E;
+    margin-bottom: 15px;
+}
+.b_services-line {
+    width: 160px;
+    height: 1px;
+    background-color: #b7b7b7;
+    margin: 0 auto 20px;
+    position: relative;
+}
+.b_services-line::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background-color: #48B2E4;
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    transform: translateX(-50%);
+}
+.b_services-title p {
+    font-size: 15px;
+    color: #444444;
+}
+/* 카드 컨테이너 */
+.b_services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+/* 카드 */
+.b_service-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+}
+.b_service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+/* 제목 색상 변경 */
+.b_service-card:hover .b_card-title {
+    color: #48B2E4;
+}
+/* 아이콘 */
+.b_service-icon {
+    margin: 0 auto 20px;
+}
+.b_service-icon img {
+    width: 50px;
+    height: auto;
+}
+/* 제목 */
+.b_card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #37527E;
+    margin-bottom: 15px;
+}
+/* 설명 */
+.b_service-desc {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.6;
+}
+/* 2. work-process */
+.b_work-process {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+/* 제목 */
+.b_work-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.b_work-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #37527E;
+    margin-bottom: 15px;
+}
+.b_work-line {
+    width: 160px;
+    height: 1px;
+    background-color: #b7b7b7;
+    margin: 0 auto 20px;
+    position: relative;
+}
+.b_work-line::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background-color: #48B2E4;
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    transform: translateX(-50%);
+}
+.b_work-title p {
+    font-size: 15px;
+    color: #848484;
+}
+/* 카드 컨테이너 */
+.b_process-container {
+    display: flex;
+    gap: 30px;
+}
+/* 카드 */
+.b_process-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.08);
+    width: 33.333%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.b_process-card:hover {
+    transform: translateY(-10px);
+}
+/* 카드 이미지 */
+.b_process-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+.b_process-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+/* 카드 hover 시 이미지 확대 */
+.b_process-card:hover .b_process-img img {
+    transform: scale(1.08);
+}
+/* 숫자 */
+.b_process-number {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background-color: #48B2E4;
+    color: #ffffff;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+/* 카드 제목 */
+.b_process-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #37527E;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/* 설명 */
+.b_process-card p {
+    font-size: 15px;
+    color: #848484;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+/* 리스트 */
+.b_process-card ul {
+    list-style-type: none;
+}
+.b_process-card li {
+    position: relative;
+    padding-left: 27px;
+    font-size: 14px;
+    color: #848484;
+    margin-bottom: 8px;
+}
+/* 체크 아이콘 */
+.b_process-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+
+    width: 25px;
+    height: 25px;
+    background: url("../images/B/check2.PNG") no-repeat center / contain;
+}
+/* 3. call to action (CTA) */
+.b_cta {
+    background: url("https://bootstrapmade.com/content/demo/Arsha/assets/img/bg/bg-8.webp") center center / cover no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+/* 어두운 오버레이 */
+.b_cta-overlay {
+    background: rgba(40, 58, 90, 0.7);
+    padding: 100px 0;
+}
+/* 컨텐츠 정렬 */
+.b_cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+/* 텍스트 */
+.b_cta-text {
+    max-width: 700px;
+}
+.b_cta-text h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.b_cta-text p {
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.7;
+}
+/* 버튼 */
+.b_cta-btn {
+    display: inline-block;
+    padding: 12px 36px;
+    border-radius: 50px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+/* 버튼 hover */
+.b_cta-btn:hover {
+    background-color: #48B2E4;
+    border-color: #48B2E4;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+    /* services: 2행 2열 */
+    .b_services-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    /* CTA 버튼 아래로 */
+    .b_cta-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .b_cta-button {
+        margin-top: 10px;
+    }
+}
+@media (min-width: 991px) {
+    .b_About-questions:has(.b_accordion-item[open]) .b_questions-right img {
+        transform: scale(1.05);
+    }
+}
+@media (max-width: 990px) {
+    .b_container {
+        padding: 0 32px;
+    }
+    .b_intro-content,
+    .b_questions-container,
+    .b_skills-container,
+    .b_process-container {
+        flex-direction: column;
+    }
+    .b_intro-left-col,
+    .b_intro-right,
+    .b_questions-left,
+    .b_questions-right,
+    .b_skills-left,
+    .b_skills-right,
+    .b_process-card {
+        width: 100%;
+    }
+    .b_questions-right {
+        order: -1;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .b_questions-right img {
+        max-width: 420px;
+    }
+}
+@media (max-width: 768px) {
+    /* services: 4행 1열 */
+    .b_services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 스크롤 애니메이션 */
+@keyframes fade-up-permanent {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+.b_About-intro,
+.b_questions-left,
+.b_questions-right img,
+.b_accordion,
+.b_About-skills,
+.b_services-title,
+.b_services-container,
+.b_work-title,
+.b_process-container {
+    opacity: 0;
+    transform: translateY(80px);
+
+    animation: fade-up-permanent 1s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+  }
+}
+@supports not (animation-timeline: view()) {
+.b_About-intro,
+.b_questions-left,
+.b_questions-right img,
+.b_accordion,
+.b_About-skills,
+.b_services-title,
+.b_services-container,
+.b_work-title,
+.b_process-container {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.b_About-intro { animation-range: 0% 8%; }
+.b_questions-left { animation-range: 8% 16%; }
+.b_questions-right img { animation-range: 12% 20%; }
+.b_accordion { animation-range: 16% 24%; }
+.b_About-skills { animation-range: 24% 32%; }
+.b_services-title { animation-range: 35% 45%; }
+.b_services-container { animation-range: 40% 50%; }
+.b_work-title { animation-range: 50% 62%; }
+.b_process-container { animation-range: 20% 65%; }
+.b_cta-container {
+    opacity: 0;
+    transform: translateY(60px);
+    animation: fade-up-permanent 0.8s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
+}
+
+/* 서비스 카드 애니메이션+반응형 */
+@keyframes fade-up {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+.b_service-card {
+    opacity: 0;
+    animation: fade-up 0.6s ease-out forwards;
+    animation-timeline: view();
+    animation-fill-mode: both;
+}
+@media (min-width: 1201px) {
+    .b_service-card:nth-child(1) {
+        animation-range: 42% 54%;
+    }
+    .b_service-card:nth-child(2) {
+        animation-range: 44% 56%;
+    }
+    .b_service-card:nth-child(3) {
+        animation-range: 46% 58%;
+    }
+    .b_service-card:nth-child(4) {
+        animation-range: 48% 60%;
+    }
+}
+@media (max-width: 1200px) {
+    .b_service-card:nth-child(1) {
+        animation-range: 42% 54%;
+    }
+    .b_service-card:nth-child(2) {
+        animation-range: 44% 56%;
+    }
+    .b_service-card:nth-child(3) {
+        animation-range: 50% 62%;
+    }
+    .b_service-card:nth-child(4) {
+        animation-range: 52% 64%;
+    }
+}
+@media (max-width: 768px) {
+    .b_service-card:nth-child(1) {
+        animation-range: 42% 54%;
+    }
+    .b_service-card:nth-child(2) {
+        animation-range: 48% 60%;
+    }
+    .b_service-card:nth-child(3) {
+        animation-range: 54% 66%;
+    }
+    .b_service-card:nth-child(4) {
+        animation-range: 60% 72%;
+    }
+}
+
+/* bar 채우기 애니메이션 */
+.w-100 { --target: 1; }
+.w-90  { --target: 0.9; }
+.w-75  { --target: 0.75; }
+.w-55  { --target: 0.55; }
+.b_skill-fill {
+    width: 100%;
+    height: 100%;
+    background-color: #37527E;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+@keyframes skill-fill {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(var(--target)); }
+}
+.b_About-skills .b_skill-fill {
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
+    animation: skill-fill 1.6s ease-out both;
+}
